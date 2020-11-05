@@ -4,6 +4,8 @@ import { CoreComponent } from './core.component';
 import { HeaderComponent } from './header/header.component';
 import { SubHeaderComponent } from './header/sub-header/sub-header.component';
 import {NavComponent} from '../shared/components/nav/nav.component';
+import {CoreRoutingModule} from './core-routing.module';
+import {SharedModule} from '../shared/shared.module';
 
 
 
@@ -15,7 +17,9 @@ import {NavComponent} from '../shared/components/nav/nav.component';
     NavComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    CoreRoutingModule,
+    SharedModule
   ],
   exports: [CoreComponent]
 })
