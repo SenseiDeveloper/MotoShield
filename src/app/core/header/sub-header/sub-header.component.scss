@@ -1,0 +1,22 @@
+.subContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  .imageContainer{
+    img{
+      width: 500px;
+      height: auto;
+    }
+  }
+  .textContainer{
+    h2{
+      font-size: 20px;
+      color: white;
+    }
+    h1{
+      font-size: 18px;
+      color: white;
+      font-weight: normal;
+    }
+  }
+}
