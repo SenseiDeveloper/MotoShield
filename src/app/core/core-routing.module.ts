@@ -4,7 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'shop', pathMatch: 'full'},
+  { path: '', redirectTo: 'home', pathMatch: 'full'},
+  { path: 'home', loadChildren: () => import('../feature/home/home.module').then( m => m.HomeModule) },
   { path: 'shop', loadChildren: () => import('../feature/shop/shop.module').then( m => m.ShopModule )},
   { path: 'size', loadChildren: () => import('../feature/size/size.module').then( m => m.SizeModule )},
   { path: 'contacts', loadChildren: () => import('../feature/contact/contact.module').then( m => m.ContactModule) },
