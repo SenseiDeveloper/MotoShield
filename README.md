@@ -8,4 +8,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 | INT() | VARCHAR(250) | VARCHAR(250) | INT(250) | DATA() | INT(250) | INT(250) | INT(10) | TEXT() | TEXT() | INT(10) | VARCHAR(250) |
 
 ### Base Users
-
+| id | name | username | password |
+| ------ | ------ | ------ | ------ |
+| INT() | VARCHAR(250) | VARCHAR(250) | VARCHAR(250) |
