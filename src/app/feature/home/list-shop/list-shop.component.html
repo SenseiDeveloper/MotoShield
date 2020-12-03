@@ -1,0 +1,26 @@
+<section>
+  <div class="titleSection">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-12">
+          <h4>Новое</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="shopList">
+    <div class="container">
+      <div class="row">
+        <ng-container *ngFor="let item of listProducts">
+          <div class="col-xl-4">
+            <app-shop-item [listProduct]="item"></app-shop-item>
+          </div>
+        </ng-container>
+        <div class="col-xl-12">
+          <button class="viewButton" (click)="selectCategory('all')"> <i class="far fa-eye"></i> Посмотреть все</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

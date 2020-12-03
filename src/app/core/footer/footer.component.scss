@@ -1,0 +1,28 @@
+.topFooter{
+  text-align: center;
+  border-bottom: 1px solid #42c4f6;
+  margin-bottom: 20px;
+  ul{
+    li{
+      list-style: none;
+      display: inline-block;
+      color: white;
+      font-size: 18px;
+      text-transform: uppercase;
+      margin: 5px 10px;
+      a{
+        color: white;
+      }
+      img{
+        width: 30px;
+        height: auto;
+      }
+    }
+  }
+}
+p{
+  color: white;
+  font-size: 16px;
+  text-align: center;
+}
+

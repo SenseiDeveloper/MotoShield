@@ -1,0 +1,33 @@
+<div class="itemShop" [ngClass]="{'sold': listProduct.sale === 1}">
+  <div class="imgContainer">
+    <img src="../../../assets/image/{{listProduct.img1}}" alt="{{listProduct.name}}">
+    <div class="sizeContainer">
+      <p>{{listProduct.size}}</p>
+    </div>
+    <div class="label" *ngIf="getDateForProduct() <= 14">
+      <p>Новое</p>
+    </div>
+    <div class="label" *ngIf="listProduct.discount > 0">
+      <p>Акция</p>
+    </div>
+  </div>
+  <div class="textItem">
+    <h3>{{listProduct.name}}</h3>
+    <div class="row">
+      <div class="col-xl-6">
+        <p><span><img src="../../../assets/image/filterIcon/uah.svg" alt="uah"></span>
+          {{listProduct.price}} грн.
+          <span class="sale" *ngIf="listProduct.discount > 0">{{listProduct.discount}} %</span>
+        </p>
+      </div>
+      <div class="col-xl-6">
+        <button class="shoppingButton">
+          <div class="shoppingIcon">
+            <i class="fas fa-shopping-bag"></i>
+          </div>
+          <p>Купить</p>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

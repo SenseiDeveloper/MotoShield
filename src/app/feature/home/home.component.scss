@@ -1,11 +1,13 @@
 section{
-  padding: 20px;
+  padding: 30px 20px;
   .category{
     //ADD HOVER CATEGORY
     .categoryItem{
-      box-shadow: 0px 0px 10px 0px rgba(25, 51, 78, 0.4);
+      transition: all .2s;
       border-radius: 3px;
       padding: 10px;
+      background: #42c4f6;
+      cursor: pointer;
       .icon{
         img{
           display: block;
@@ -18,115 +20,14 @@ section{
         text-align: center;
         text-transform: uppercase;
         font-size: 17px;
+        color: black;
+        font-weight: bold;
       }
+    }
+    .categoryItem:hover{
+      box-shadow: 0px 0px 5px 0px rgba(0,0,0,1);
+      transition: all .2s;
     }
   }
 }
 
-.shopContainer{
-  .itemShop{
-    border-bottom: 5px solid rgba(122,26,250,1);
-    box-shadow: 0px 0px 10px 0px rgba(25, 51, 78, 0.4);
-    border-radius: 3px;
-    cursor: pointer;
-    transition: all .4s;
-    margin: 10px 0;
-    p{
-      font-size: 16px;
-    }
-    .imgContainer{
-      position: relative;
-      .sizeContainer{
-        background: black;
-        position: absolute;
-        right: 10px;
-        bottom: 8px;
-        color: white;
-        width: 30%;
-        border-radius: 25px;
-        padding: 5px;
-        p{
-          margin: 0;
-          padding: 0;
-          text-align: center;
-        }
-      }
-      .label{
-        position: absolute;
-        top: -8px;
-        left: 0px;
-        z-index: 1;
-        padding: 0 10px;
-        height: 25px;
-        background: #ff2f2f;
-        color: #fff;
-        text-align: center;
-        font-size: 16px;
-      }
-      .label::before {
-        position: absolute;
-        top: 0;
-        right: -8px;
-        display: block;
-        border-width: 4px;
-        border-style: solid;
-        border-color: transparent transparent #af1f1f #af1f1f;
-        content: "";
-      }
-      img{
-        display: block;
-        width: 100%;
-        margin: 0 auto;
-        height: auto;
-        border-top-left-radius: 3px;
-        border-top-right-radius: 3px;
-      }
-    }
-    .textItem{
-      padding: 10px;
-      h3{
-        text-align: center;
-        font-size: 20px;
-      }
-      p{
-        margin-top: 10px;
-        span img{
-          width: 15%;
-          height: auto;
-        }
-        .sale{
-          color: #ff2f2f;
-          font-weight: bold;
-        }
-      }
-      button{
-        padding: 8px 15px 0 5px;
-        font-size: 15px;
-        width: 100%;
-        text-align: center;
-        justify-content: center;
-        .shoppingIcon{
-          font-size: 18px;
-        }
-        p{
-          margin-top: 5px;
-          font-size: 14px;
-        }
-      }
-    }
-  }
-  .itemShop:hover{
-    box-shadow: 0px 0px 10px 0px rgba(25, 51, 78, 0.7);
-    border-bottom: 5px solid rgba(213,0,178,1);
-    transition: all .4s;
-  }
-}
-
-.sold{
-  img{
-    opacity: .5;
-  }
-  button{
-    background: grey;
-  }
-}

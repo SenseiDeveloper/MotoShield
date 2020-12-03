@@ -1,9 +1,10 @@
+<app-sub-header></app-sub-header>
 <section>
   <div class="category">
     <div class="container">
       <div class="row">
         <div class="col-xl-3">
-          <div class="categoryItem">
+          <div class="categoryItem" (click)="selectCategory('helm')">
             <div class="icon">
               <img src="../../../assets/image/filterIcon/helm.svg" alt="Moto Shield">
             </div>
@@ -11,7 +12,7 @@
           </div>
         </div>
         <div class="col-xl-3">
-          <div class="categoryItem">
+          <div class="categoryItem" (click)="selectCategory('clothing')">
             <div class="icon">
               <img src="../../../assets/image/filterIcon/sute.svg" alt="Moto Shield">
             </div>
@@ -19,7 +20,7 @@
           </div>
         </div>
         <div class="col-xl-3">
-          <div class="categoryItem">
+          <div class="categoryItem" (click)="selectCategory('glove')">
             <div class="icon">
               <img src="../../../assets/image/filterIcon/hend.svg" alt="Moto Shield">
             </div>
@@ -27,7 +28,7 @@
           </div>
         </div>
         <div class="col-xl-3">
-          <div class="categoryItem">
+          <div class="categoryItem" (click)="selectCategory('boot')">
             <div class="icon">
               <img src="../../../assets/image/filterIcon/boots.svg" alt="Moto Shield">
             </div>
@@ -38,181 +39,4 @@
     </div>
   </div>
 </section>
-
-<!--Model-->
-<section>
-<div class="shopContainer">
-  <div class="container">
-    <div class="row">
-      <div class="col-xl-4">
-        <div class="itemShop">
-          <div class="imgContainer">
-            <img src="../../../assets/image/shop/photo_2020-11-09_16-57-37.jpg" alt="">
-            <div class="sizeContainer">
-              <p>Размер: X</p>
-            </div>
-          </div>
-          <div class="textItem">
-            <h3>AGV K5</h3>
-            <div class="row">
-              <div class="col-xl-6">
-                <p><span><img src="../../../assets/image/filterIcon/uah.svg" alt="uah"></span>
-                  1000 грн.</p>
-              </div>
-              <div class="col-xl-6">
-                <button class="shoppingButton">
-                  <div class="shoppingIcon">
-                    <i class="fas fa-shopping-bag"></i>
-                  </div>
-                  <p>Купить</p>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-4">
-        <div class="itemShop">
-          <div class="imgContainer">
-            <img src="../../../assets/image/shop/photo_2020-11-09_16-57-37.jpg" alt="">
-            <div class="sizeContainer">
-              <p>Размер: X</p>
-            </div>
-            <div class="label">
-              <p>Новое</p>
-            </div>
-          </div>
-          <div class="textItem">
-            <h3>AGV K5</h3>
-            <div class="row">
-              <div class="col-xl-6">
-                <p><span><img src="../../../assets/image/filterIcon/uah.svg" alt="uah"></span>
-                  1000 грн.</p>
-              </div>
-              <div class="col-xl-6">
-                <button class="shoppingButton">
-                  <div class="shoppingIcon">
-                    <i class="fas fa-shopping-bag"></i>
-                  </div>
-                  <p>Купить</p>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-4">
-        <div class="itemShop">
-          <div class="imgContainer">
-            <img src="../../../assets/image/shop/photo_2020-11-09_16-57-37.jpg" alt="">
-            <div class="sizeContainer">
-              <p>Размер: X</p>
-            </div>
-            <div class="label">
-              <p>Акция</p>
-            </div>
-          </div>
-          <div class="textItem">
-            <h3>AGV K5</h3>
-            <div class="row">
-              <div class="col-xl-6">
-                <p><span><img src="../../../assets/image/filterIcon/uah.svg" alt="uah"></span>
-                  1000 грн. <span class="sale">-10%</span></p>
-              </div>
-              <div class="col-xl-6">
-                <button class="shoppingButton">
-                  <div class="shoppingIcon">
-                    <i class="fas fa-shopping-bag"></i>
-                  </div>
-                  <p>Купить</p>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-4">
-        <div class="itemShop sold">
-          <div class="imgContainer">
-            <img src="../../../assets/image/shop/photo_2020-11-09_16-57-37.jpg" alt="">
-            <div class="sizeContainer">
-              <p>Размер: X</p>
-            </div>
-          </div>
-          <div class="textItem">
-            <h3>AGV K5</h3>
-            <div class="row">
-              <div class="col-xl-6">
-                <p><span><img src="../../../assets/image/filterIcon/uah.svg" alt="uah"></span>
-                  1000 грн.</p>
-              </div>
-              <div class="col-xl-6">
-                <button disabled class="shoppingButton sold">
-                  <div class="shoppingIcon">
-                    <i class="fas fa-shopping-bag"></i>
-                  </div>
-                  <p>Купить</p>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-4">
-        <div class="itemShop">
-          <div class="imgContainer">
-            <img src="../../../assets/image/shop/photo_2020-11-09_16-57-37.jpg" alt="">
-            <div class="sizeContainer">
-              <p>Размер: X</p>
-            </div>
-          </div>
-          <div class="textItem">
-            <h3>AGV K5</h3>
-            <div class="row">
-              <div class="col-xl-6">
-                <p><span><img src="../../../assets/image/filterIcon/uah.svg" alt="uah"></span>
-                  1000 грн.</p>
-              </div>
-              <div class="col-xl-6">
-                <button class="shoppingButton">
-                  <div class="shoppingIcon">
-                    <i class="fas fa-shopping-bag"></i>
-                  </div>
-                  <p>Купить</p>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-4">
-        <div class="itemShop">
-          <div class="imgContainer">
-            <img src="../../../assets/image/shop/photo_2020-11-09_16-57-37.jpg" alt="">
-            <div class="sizeContainer">
-              <p>Размер: X</p>
-            </div>
-          </div>
-          <div class="textItem">
-            <h3>AGV K5</h3>
-            <div class="row">
-              <div class="col-xl-6">
-                <p><span><img src="../../../assets/image/filterIcon/uah.svg" alt="uah"></span>
-                  1000 грн.</p>
-              </div>
-              <div class="col-xl-6">
-                <button class="shoppingButton">
-                  <div class="shoppingIcon">
-                    <i class="fas fa-shopping-bag"></i>
-                  </div>
-                  <p>Купить</p>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</section>
+<app-list-shop></app-list-shop>

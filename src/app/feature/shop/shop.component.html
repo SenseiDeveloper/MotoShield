@@ -1,1 +1,16 @@
-<p>shop works!</p>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-3">1</div>
+      <div class="col-xl-9">
+        <div class="row">
+          <ng-container *ngFor="let item of listProducts">
+            <div class="col-xl-6">
+              <app-shop-item [listProduct]="item"></app-shop-item>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
