@@ -1,0 +1,56 @@
+<section *ngIf="product ? true:''">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-12">
+        <div class="navigation">
+          <ul>
+            <li [routerLink]="['/shop']" >Мотоэкипировка ></li>
+            <li>{{product['name']}}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-xl-8">
+        <ngx-gallery  [images]="galleryImages" [options]="galleryOptions" class="ngx-gallery"></ngx-gallery>
+      </div>
+      <div class="col-xl-4">
+        <div class="textProduct">
+          <h4>{{product['name']}}</h4>
+          <div class="line"></div>
+          <ul>
+            <li>
+              <span>Размер</span>
+              <p>{{product['size']}}</p>
+            </li>
+            <li>
+              <span>Состояния</span>
+              <p>{{product['state']}}</p>
+            </li>
+            <li>
+              <span>Цена</span>
+              <p>{{product['price']}} <img src="../../../assets/image/filterIcon/uah.svg" alt="uah"></p>
+            </li>
+            <li>
+              <span>Недостатки</span>
+              <p>{{product['disadvantage']}}</p>
+            </li>
+          </ul>
+          <div class="btnBlock">
+            <button class="callbackButton" (click)="openDialog()">
+              <p>Перезвоните мне</p>
+            </button>
+            <button class="shoppingButton">
+              <p>Добавить в корзину</p>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-12">
+        <div class="downText">
+          <span>Характеристики</span>
+        </div>
+        <p>{{product['characteristics']}}</p>
+      </div>
+    </div>
+  </div>
+</section>
+

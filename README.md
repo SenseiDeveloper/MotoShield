@@ -16,3 +16,11 @@ id|date|name|size|price|state|characteristics|Disadvantages|IMG
 | ------ | ------ | ------ | ------ |
 | INT() | VARCHAR(250) | VARCHAR(250) | VARCHAR(250) |
 >>>>>>> d62b54fd5bb6d776280d083cfbe9d24885420dc2
+
+
+- ADAPTIVE FOR MOBILE
+- ADD NUMBER PAGE IN PAGE SHOP
+- ADD STRING IF PRODUCTS LENGTH 0 
+- SEARCH INPUT IN PAGE SHOP
+- ADD CALLBACK BUTTON IN HEADPAGE
+- SEND DATA CALLBACK BUTTON

@@ -5,17 +5,22 @@ import {RouterModule} from '@angular/router';
 import {ApiBaseService} from './API/api-base.service';
 import { ShopItemComponent } from './components/shop-item/shop-item.component';
 import { ModalBacketComponent } from './components/modal-backet/modal-backet.component';
+import { CallbackModalComponent } from './components/callback-modal/callback-modal.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
 
 
 
 
 @NgModule({
-  declarations: [ShopItemComponent, ModalBacketComponent],
-  exports: [ShopItemComponent],
+  declarations: [ShopItemComponent, ModalBacketComponent, CallbackModalComponent],
+  exports: [ShopItemComponent, CallbackModalComponent ],
   imports: [
     CommonModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    MatDialogModule,
+    MatInputModule
   ],
   providers: [ApiBaseService]
 })

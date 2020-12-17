@@ -4,6 +4,10 @@
 @import '~bootstrap/scss/bootstrap';
 /* Importing FontAwesome SCSS file. */
 @import '~@fortawesome/fontawesome-free/css/all.min.css';
+/* Importing Material Style*/
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+.ngx-gallery { display: inline-block;}
 
 *{
   margin: 0;
@@ -36,6 +40,20 @@ h1,h2,h3,h4,h5,p,li,a{
   box-shadow: 0 0 rgba(0,0,0,0.18), 0 4px 15px 0 rgba(0,0,0,0.65);
 }
 
+.callbackButton{
+  background: linear-gradient(90deg, rgba(67,162,232,1) 0%, rgba(74,15,181,1) 100%);
+  border-radius: 25px;
+  display: flex;
+  cursor: pointer;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.45);
+  transition: all .4s;
+  outline: none;
+  border: none;
+  p{
+    text-transform: uppercase;
+    color: white;
+  }
+}
 .shoppingButton{
   background: linear-gradient(90deg, rgba(211,4,182,1) 0%, rgba(122,26,250,1) 100%);
   border-radius: 25px;
@@ -53,14 +71,18 @@ h1,h2,h3,h4,h5,p,li,a{
   }
   p{
     text-transform: uppercase;
-    color: gray;
     color: white;
   }
 }
 
 .shoppingButton:hover,
-.shoppingButton:active{
+.shoppingButton:active,
+.callbackButton:hover,
+.callbackButton:active{
   box-shadow: 0 0 rgba(0,0,0,0.18), 0 4px 15px 0 rgba(0,0,0,0.65);
   transition: all .4s;
   outline: none !important;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

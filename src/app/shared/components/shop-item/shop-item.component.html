@@ -1,4 +1,4 @@
-<div class="itemShop" [ngClass]="{'sold': listProduct.sale === 1}">
+<div class="itemShop" [ngClass]="{'sold': listProduct.sale === 1}" (click)="redirectSelectProduct(listProduct.id)">
   <div class="imgContainer">
     <img src="../../../assets/image/{{listProduct.img1}}" alt="{{listProduct.name}}">
     <div class="sizeContainer">

@@ -1,0 +1,24 @@
+aside{
+  padding: 20px;
+  .filterTitle{
+    color: white;
+    text-transform: uppercase;
+    border-radius: 3px;
+    background: #011e46;
+    padding: 5px;
+  }
+  ul{
+    li{
+      list-style: none;
+      cursor: pointer;
+      color: #011e46;
+      font-size: 16px;
+      span{
+        color: red;
+      }
+    }
+  }
+}
+aside ul .active i{
+  color: red;
+}
