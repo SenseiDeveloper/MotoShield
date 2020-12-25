@@ -8,13 +8,14 @@ import { ModalBacketComponent } from './components/modal-backet/modal-backet.com
 import { CallbackModalComponent } from './components/callback-modal/callback-modal.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
+import { ButtonBacketComponent } from './components/button-backet/button-backet.component';
 
 
 
 
 @NgModule({
-  declarations: [ShopItemComponent, ModalBacketComponent, CallbackModalComponent],
-  exports: [ShopItemComponent, CallbackModalComponent ],
+  declarations: [ShopItemComponent, ModalBacketComponent, CallbackModalComponent, ButtonBacketComponent],
+  exports: [ShopItemComponent, CallbackModalComponent, ButtonBacketComponent ],
   imports: [
     CommonModule,
     HttpClientModule,

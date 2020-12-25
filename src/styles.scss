@@ -22,6 +22,42 @@ h1,h2,h3,h4,h5,p,li,a{
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
+html, body { height: 100%; }
+
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.wrapSection{
+  padding: 20px;
+  min-height: 80vh;
+  // H3
+  .sectionTitle{
+    font-weight: 700!important;
+    font-size: 18px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+  }
+  //H1
+  .sectionH1{
+    font-size: 18px;
+    font-weight: 700;
+  }
+  //H5
+  .sectionH5{
+    font-weight: 600;
+    font-size: 17px;
+    margin: 0;
+    padding: 0;
+  }
+  //P
+  .sectionText{
+    font-weight: 400;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+  }
+}
+
 .viewButton{
   background: #022b63;
   border-radius: 25px;
@@ -84,5 +120,3 @@ h1,h2,h3,h4,h5,p,li,a{
   outline: none !important;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

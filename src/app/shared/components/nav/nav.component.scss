@@ -1,42 +1,201 @@
-ul{
-  text-align: right;
-  margin-top: 15px;
-  li{
+.laptop{
+  ul{
+    margin-top: 15px;
+    li{
+      text-align: right;
+      color: white;
+      padding: 10px 12px;
+      font-size: 16px;
+      list-style: none;
+      display: inline-block;
+      text-transform: uppercase;
+      font-weight: normal;
+      cursor: pointer;
+      outline: none;
+      margin: 0 2px;
+      transition: all .4s;
+      border: 2px solid #011e46;
+      border-radius:25px;
+      button{
+        background: linear-gradient(90deg, #d304b6 0%, #7a1afa 100%);
+        font-size: 20px;
+        color: white;
+        border: none;
+        outline: none;
+        padding: 3px 25px;
+        border-radius: 25px;
+      }
+    }
+    li:active,
+    li:hover{
+      background:
+        linear-gradient(#011e46,#011e46) padding-box, /*this is your grey background*/
+        linear-gradient(90deg, #d500b2, #7818f8) border-box;
+      color: white;
+      border: 2px solid transparent;
+      border-radius:25px;
+      transition: all .4s;
+    }
+    //active router class
+    .active{
+      background:
+        linear-gradient(#011e46,#011e46) padding-box, /*this is your grey background*/
+        linear-gradient(90deg, #d500b2, #7818f8) border-box;
+      color: white;
+      border: 2px solid transparent;
+      border-radius:25px;
+      transition: all .4s;
+      box-shadow: 0 0 rgba(0,0,0,0.18), 0 4px 15px 0 rgba(0,0,0,0.35);
+    }
+  }
+}
+.mnuMobileBtn{
+  color: white;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 25px;
+  position: absolute;
+  right: 5px;
+  top: -60px;
+  transition: all .4s;
+}
+.mnuMobileBtn:hover,
+.mnuMobileBtn:active{
+  color: #7818f8;
+  transition: all .4s;
+}
+
+
+.mobile{
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  background: rgba(0,0,0,.9);
+  z-index: 9999;
+  button{
     color: white;
-    list-style: none;
-    display: inline-block;
-    text-transform: uppercase;
-    padding: 10px 12px;
-    font-size: 16px;
-    font-weight: normal;
-    cursor: pointer;
+    font-size: 30px;
+    background: none;
+    border: none;
+    margin: 10px 20px;
     outline: none;
-    margin: 0 2px;
     transition: all .4s;
-    border: 2px solid #011e46;
-    border-radius:25px;
+    float: right;
   }
-  li:active,
-  li:hover{
-    background:
-      linear-gradient(#011e46,#011e46) padding-box, /*this is your grey background*/
-      linear-gradient(90deg, #d500b2, #7818f8) border-box;
-    color: white;
-    border: 2px solid transparent;
-    border-radius:25px;
+  button:hover,
+  button:active{
     transition: all .4s;
-    box-shadow: inset 0px 0px 16px 0px rgba(211,2,181,1);
+    color: #7818f8;
   }
-  //active router class
-  .active{
-    background:
-      linear-gradient(#011e46,#011e46) padding-box, /*this is your grey background*/
-      linear-gradient(90deg, #d500b2, #7818f8) border-box;
-    color: white;
-    border: 2px solid transparent;
-    border-radius:25px;
-    transition: all .4s;
-    box-shadow: 0 0 rgba(0,0,0,0.18), 0 4px 15px 0 rgba(0,0,0,0.35);
+  .wrapMnu{
+    position: absolute;
+    top:20%;
+    left:50%;
+    margin-left: -80px;
+    ul{
+      li{
+        display: block;
+        text-align: left;
+        color: white;
+        list-style: none;
+        font-size: 18px;
+        text-transform: uppercase;
+        cursor: pointer;
+        padding: 8px 0;
+        transition: all .4s;
+        border-bottom: 1px solid rgba(0,0,0,0);
+      }
+      li:active,
+      li:hover{
+        border-bottom: 1px solid #7818f8;
+        transition: all .4s;
+      }
+      .active{
+        border-bottom: 1px solid #7818f8;
+        transition: all .4s;
+      }
+    }
+  }
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+  .laptop{
+    display: none;
+  }
+  .mnuMobileBtn{
+    top: -40px;
+    right: 10px;
+    font-size: 22px;
+  }
+  .mobile .wrapMnu ul li{
+    font-size: 16px;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .laptop{
+    display: none;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .mnuMobileBtn{
+    display: none;
+  }
+  .laptop{
+    display: block;
+    ul{
+      text-align: center;
+      li{
+        font-size: 14px;
+        padding: 7px 9px;
+        button{
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .mnuMobileBtn{
+    display: none;
+  }
+  .laptop{
+    display: block;
+    ul{
+      margin: 15px 0 0 0;
+      text-align: left;
+      li{
+        font-size: 14px;
+        padding: 7px 9px;
+        button{
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .mnuMobileBtn{
+    display: none;
+  }
+  .laptop{
+    display: block;
+      li{
+        button{
+          display: none;
+        }
+      }
   }
 }
 

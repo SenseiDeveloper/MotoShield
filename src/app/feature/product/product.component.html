@@ -1,4 +1,4 @@
-<section *ngIf="product ? true:''">
+<section *ngIf="product ? true:''" class="wrapSection">
   <div class="container">
     <div class="row">
       <div class="col-xl-12">
@@ -14,33 +14,31 @@
       </div>
       <div class="col-xl-4">
         <div class="textProduct">
-          <h4>{{product['name']}}</h4>
+          <h1 class="sectionH1">{{product['name']}}</h1>
           <div class="line"></div>
           <ul>
             <li>
               <span>Размер</span>
-              <p>{{product['size']}}</p>
+              <p class="sectionText">{{product['size']}}</p>
             </li>
             <li>
               <span>Состояния</span>
-              <p>{{product['state']}}</p>
+              <p class="sectionText">{{product['state']}}</p>
             </li>
             <li>
               <span>Цена</span>
-              <p>{{product['price']}} <img src="../../../assets/image/filterIcon/uah.svg" alt="uah"></p>
+              <p class="sectionText">{{product['price']}} <img src="../../../assets/image/filterIcon/uah.svg" alt="uah"></p>
             </li>
             <li>
               <span>Недостатки</span>
-              <p>{{product['disadvantage']}}</p>
+              <p class="sectionText">{{product['disadvantage']}}</p>
             </li>
           </ul>
           <div class="btnBlock">
             <button class="callbackButton" (click)="openDialog()">
               <p>Перезвоните мне</p>
             </button>
-            <button class="shoppingButton">
-              <p>Добавить в корзину</p>
-            </button>
+            <app-button-backet [buttonName]="'Добавить в корзину'" [productID]="product['id']"></app-button-backet>
           </div>
         </div>
       </div>
@@ -48,7 +46,8 @@
         <div class="downText">
           <span>Характеристики</span>
         </div>
-        <p>{{product['characteristics']}}</p>
+        <div class="line"></div>
+        <p class="sectionText">{{product['characteristics']}}</p>
       </div>
     </div>
   </div>

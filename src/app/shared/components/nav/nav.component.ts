@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ModalBacketComponent} from '../modal-backet/modal-backet.component';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-nav',
@@ -7,9 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  constructor() { }
+  hiddenState: boolean = false;
+
+  constructor(
+    public dialog: MatDialog
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  openMobileMenu() {
+    this.hiddenState = !this.hiddenState;
+  }
+
+  closeModalMenu() {
+    this.hiddenState = !this.hiddenState;
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ModalBacketComponent, {
+      width: '700px'
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
 }

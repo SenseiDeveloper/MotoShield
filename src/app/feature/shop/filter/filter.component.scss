@@ -1,5 +1,8 @@
 aside{
-  padding: 20px;
+  padding: 10px 0;
+  mat-form-field{
+    width: 100%;
+  }
   .filterTitle{
     color: white;
     text-transform: uppercase;
@@ -8,11 +11,13 @@ aside{
     padding: 5px;
   }
   ul{
+    padding: 5px 0;
     li{
       list-style: none;
       cursor: pointer;
       color: #011e46;
       font-size: 16px;
+      font-weight: 400;
       span{
         color: red;
       }

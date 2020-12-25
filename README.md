@@ -2,10 +2,6 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
 
-<<<<<<< HEAD
-#Base Shop
-id|date|name|size|price|state|characteristics|Disadvantages|IMG
-=======
 ### Base Products
 | id | name | categories | discount | data | size | price | state | characteristics | disadvantage | sale | image |
 | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | 
@@ -15,7 +11,7 @@ id|date|name|size|price|state|characteristics|Disadvantages|IMG
 | id | name | username | password |
 | ------ | ------ | ------ | ------ |
 | INT() | VARCHAR(250) | VARCHAR(250) | VARCHAR(250) |
->>>>>>> d62b54fd5bb6d776280d083cfbe9d24885420dc2
+
 
 
 - ADAPTIVE FOR MOBILE
@@ -24,3 +20,4 @@ id|date|name|size|price|state|characteristics|Disadvantages|IMG
 - SEARCH INPUT IN PAGE SHOP
 - ADD CALLBACK BUTTON IN HEADPAGE
 - SEND DATA CALLBACK BUTTON
+- ADD LOADER

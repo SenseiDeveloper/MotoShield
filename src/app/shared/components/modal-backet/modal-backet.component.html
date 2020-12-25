@@ -1,4 +1,25 @@
-<p mat-dialog-title>bsj </p>
+<p mat-dialog-title>Корзина заказов</p>
 <div mat-dialog-content>
-  bssk
+  <p *ngIf="products?.length === 0">В корзине нет товаров</p>
+  <div class="wrapBasket" >
+    <ng-container *ngFor="let product of products">
+      <div class="item" (click)="redirectProduct(product.id)">
+        <ul>
+          <li>
+            <img src="../../../assets/image/{{product.img1}}" alt="{{product.name}}">
+          </li>
+          <li>
+            <h5>{{product.name}}</h5>
+            <p>{{product.price}} <span><img src="../../../assets/image/filterIcon/uah.svg" alt="uah"></span></p>
+          </li>
+          <li>
+            <button (click)="removeProduct(product.id); $event.stopPropagation()">
+              <i class="fas fa-trash"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </ng-container>
+    <button *ngIf="products?.length !== 0" class="viewButton">Оформить заказ</button>
+  </div>
 </div>

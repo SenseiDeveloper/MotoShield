@@ -5,6 +5,7 @@ import { ProductRoutingModule } from './product-routing.module';
 import { ProductComponent } from './product.component';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { RouterModule} from '@angular/router';
+import {SharedModule} from '../../shared/shared.module';
 
 
 
@@ -14,7 +15,8 @@ import { RouterModule} from '@angular/router';
     CommonModule,
     ProductRoutingModule,
     NgxGalleryModule,
-    RouterModule
+    RouterModule,
+    SharedModule
   ]
 })
 export class ProductModule { }

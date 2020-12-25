@@ -61,7 +61,7 @@
       background: white;
       h3{
         text-align: center;
-        font-size: 18px;
+        margin: 5px 0 10px 0;
       }
       p{
         margin-top: 10px;
@@ -72,21 +72,6 @@
         .sale{
           color: #ff2f2f;
           font-weight: bold;
-        }
-      }
-      button{
-        padding: 10px 0;
-        width: 100%;
-        text-align: center;
-        justify-content: center;
-        .shoppingIcon{
-          font-size: 16px;
-          margin-top: -4px;
-        }
-        p{
-          font-size: 14px;
-          padding: 0;
-          margin: 0;
         }
       }
     }

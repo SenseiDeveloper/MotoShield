@@ -1,8 +1,31 @@
-<nav>
+<nav class="laptop">
   <ul>
     <li routerLink="home" routerLinkActive="active"> Мотоэкипировка</li>
     <li routerLink="size" routerLinkActive="active"> Таблица размеров</li>
     <li routerLink="billpay" routerLinkActive="active"> Доставка и оплата</li>
     <li routerLink="contacts" routerLinkActive="active"> Контакты</li>
+    <li>
+      <button (click)="openDialog()">
+        <i class="fas fa-shopping-bag"></i>
+      </button>
+    </li>
   </ul>
+</nav>
+
+<button class="mnuMobileBtn" (click)="openMobileMenu()">
+  <i class="fas fa-bars"></i>
+</button>
+
+<nav class="mobile" *ngIf="hiddenState">
+  <button (click)="closeModalMenu()">
+    <i class="fas fa-times"></i>
+  </button>
+  <div class="wrapMnu">
+    <ul>
+      <li routerLink="home" routerLinkActive="active" (click)="closeModalMenu()"> Мотоэкипировка</li>
+      <li routerLink="size" routerLinkActive="active" (click)="closeModalMenu()"> Таблица размеров</li>
+      <li routerLink="billpay" routerLinkActive="active" (click)="closeModalMenu()"> Доставка и оплата</li>
+      <li routerLink="contacts" routerLinkActive="active" (click)="closeModalMenu()"> Контакты</li>
+    </ul>
+  </div>
 </nav>

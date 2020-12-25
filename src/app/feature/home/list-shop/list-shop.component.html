@@ -3,24 +3,26 @@
     <div class="container">
       <div class="row">
         <div class="col-xl-12">
-          <h4>Новое</h4>
+          <h4 class="sectionH5">Новое</h4>
         </div>
       </div>
     </div>
   </div>
   <div class="shopList">
-    <div class="container">
-      <div class="row">
-        <ng-container *ngFor="let item of listProducts">
-          <div class="col-xl-4">
-            <app-shop-item [listProduct]="item"></app-shop-item>
+    <section class="wrapSection">
+      <div class="container">
+        <div class="row">
+          <ng-container *ngFor="let item of listProducts">
+            <div class="col-xl-4">
+              <app-shop-item [listProduct]="item"></app-shop-item>
+            </div>
+          </ng-container>
+          <div class="col-xl-12">
+            <button class="viewButton" (click)="selectCategory('all')"> <i class="far fa-eye"></i> Посмотреть все</button>
           </div>
-        </ng-container>
-        <div class="col-xl-12">
-          <button class="viewButton" (click)="selectCategory('all')"> <i class="far fa-eye"></i> Посмотреть все</button>
         </div>
       </div>
-    </div>
+    </section>
   </div>
 </section>
 

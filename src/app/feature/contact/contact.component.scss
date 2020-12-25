@@ -1,14 +1,4 @@
 section{
-  min-height: 800px;
-  padding: 20px;
-  p{
-    font-size: 16px;
-  }
-  h4{
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 18px;
-  }
   ul{
     display: block;
     text-align: center;
@@ -16,32 +6,70 @@ section{
       list-style: none;
       display: inline-block;
       background: rgba(0, 65, 123, 0.2);
-      padding: 10px;
       border-radius: 3px;
       margin: 3px 10px;
       width: 300px;
+      .bgPhoneIcon{
+        background: rgba(0, 65, 123, 1);
+      }
+      .bgPhoneText{
+        background: rgba(0, 65, 123, .1);
+      }
+      .bgViberIcon{
+        background: rgba(122, 26, 250, 1);
+      }
+      .bgViberText{
+        background: rgba(122, 26, 250, .1);
+      }
+      .bgInstagramIcon{
+        background: rgba(211, 4, 182, 1);
+      }
+      .bgInstagramText{
+        background: rgba(211, 4, 182, .1);
+      }
+      .bgTelegramIcon{
+        background: rgba(66, 196, 246, 1);
+      }
+      .bgTelegramText{
+        background: rgba(66, 196, 246, .1);
+      }
+      .bgGmailIcon{
+        background: rgba(246, 71, 71, 1);
+      }
+      .bgGmailText{
+        background: rgba(246, 71, 71, .1);
+      }
+      .bgLocationIcon{
+        background: rgba(192, 57, 43, 1);
+      }
+      .bgLocationText{
+        background: rgba(192, 57, 43, .1);
+      }
       a{
         text-decoration: none;
         display: flex;
         flex-direction: row;
         color: black;
+        flex-wrap: nowrap;
         .icon{
-          margin: 5px 10px;
+          padding: 10px 15px;
+          border-bottom-left-radius: 3px;
+          border-top-left-radius: 3px;
           font-size: 25px;
-          color: #7a1afa;
+          color: white;
         }
-        h5{
-          margin: 0;
-          padding: 0;
-          font-size: 17px;
-          text-transform: uppercase;
+        .text{
+          border-bottom-right-radius: 3px;
+          border-top-right-radius: 3px;
+          width: 100%;
+          padding: 5px 10px;
           text-align: left;
-        }
-        p{
-          font-size: 17px;
-          color: #001c44;
-          margin: 0;
-          padding: 0;
+          h5{
+            text-transform: uppercase;
+          }
+          p{
+            color: #001c44;
+          }
         }
       }
     }

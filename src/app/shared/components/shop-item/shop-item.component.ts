@@ -26,7 +26,7 @@ export class ShopItemComponent implements OnInit {
     return diffDays;
   }
 
- redirectSelectProduct(e){
+ redirectSelectProduct(e: number){
     this.router.navigate([`product/${e}`]);
  }
 }

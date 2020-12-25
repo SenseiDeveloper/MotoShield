@@ -1,12 +1,14 @@
 section{
+  padding: 0;
   .titleSection{
     padding: 10px 0;
     h4{
-      font-size: 20px;
       color: black;
       text-transform: uppercase;
       padding: 5px 0;
       width: 130px;
+      font-weight: 600;
+      font-size: 17px;
       border-bottom: 4px solid #42c4f6;
     }
   }

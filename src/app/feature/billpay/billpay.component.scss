@@ -1,0 +1,58 @@
+section{
+  .bgPayIcon{
+    background: rgba(0, 65, 123, 1);
+  }
+  .bgPayText{
+    background: rgba(0, 65, 123, .1);
+  }
+  .bgBillIcon{
+    background: rgba(122, 26, 250, 1);
+  }
+  .bgBillText{
+    background: rgba(122, 26, 250, .1);
+  }
+  .bgSendIcon{
+    background: rgba(211, 4, 182, 1);
+  }
+  .bgSendText{
+    background: rgba(211, 4, 182, .1);
+  }
+  .cardInfo{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: 10px 0;
+    .iconCard{
+      position: relative;
+      color: white;
+      font-size: 35px;
+      border-bottom-left-radius: 3px;
+      border-top-left-radius: 3px;
+      box-shadow: 2px 0px 4px 0px rgba(0,0,0,0.75);
+      .icon{
+        width: 100px;
+        i{
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          margin-right: -50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+  }
+  .textCard{
+    padding: 20px;
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
+    width: 100%;
+     h5{
+       text-transform: uppercase;
+       margin-bottom: 5px;
+     }
+     p{
+       margin: 0;
+       padding: 0;
+     }
+  }
+}

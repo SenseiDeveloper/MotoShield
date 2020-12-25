@@ -296,6 +296,17 @@ app.get('/api/products-counter',function(req, res){
 });
 
 
+//API GET PRODUCTS FOR BASKET
+//NO MAP for parameters
+app.post('/api/products-basket',cors(),function(req, res){
+  let productId = req.body;
+  let newIteams = [];
+  for (let i = 0; i < productId.length; i++) {
+    const findIteam = ITEAMS.find(el => el.id === productId[i]);
+    newIteams.push(findIteam);
+  }
+  res.status(200).send(newIteams);
+});
 
 
 app.listen(9000,function(){

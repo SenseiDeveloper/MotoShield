@@ -1,0 +1,62 @@
+.wrapBasket{
+  .item{
+    padding: 5px;
+    margin: 5px;
+    border-top: 1px solid #42c4f6;
+    border-bottom: 1px solid #42c4f6;
+    cursor: pointer;
+    transition: all .4s;
+    img{
+      width: 150px;
+      height: auto;
+    }
+    ul{
+      margin: 0;
+      padding: 0;
+      position: relative;
+      li{
+        list-style: none;
+        margin-right: 5px;
+        display: inline-block;
+        span img{
+          width: 20px;
+          height: auto;
+        }
+        h5,p{
+          text-transform: uppercase;
+          font-size: 16px;
+          margin: 0;
+          padding: 0;
+        }
+        button{
+          position: absolute;
+          top: 25%;
+          right: 0;
+          color: #42c4f6;
+          font-size: 20px;
+          border: none;
+          padding: 10px;
+          background: none;
+          outline: none;
+          transition: all .4s;
+        }
+        button:active,
+        button:hover{
+          transition: all .4s;
+          outline: none !important;
+          color: #ff2f2f;
+        }
+      }
+    }
+  }
+  .item:hover,
+  .item:active{
+    background: gainsboro;
+    transition: all .4s;
+  }
+  button{
+    color: white;
+    margin: 5px 0px 10px 0px;
+    float: right;
+  }
+}

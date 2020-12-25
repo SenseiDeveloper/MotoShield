@@ -1,0 +1,15 @@
+section{
+  padding: 20px;
+  min-height: 800px;
+  .tb{
+    width: 100%;
+  }
+  table{
+    border: 1px solid grey;
+    tr{
+      td{
+        padding: 10px;
+      }
+    }
+  }
+}

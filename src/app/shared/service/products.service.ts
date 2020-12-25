@@ -33,4 +33,8 @@ export class ProductsService extends ApiBaseService{
   getProductByID(id: string): Observable<ProductModel[]> {
     return this.get(`products/${id}`);
   }
+
+  getProductsForBasket( value: []): Observable<HomeProductModel[]> {
+    return this.post('products-basket', value);
+  }
 }
