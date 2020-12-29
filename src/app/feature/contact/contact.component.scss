@@ -75,3 +75,49 @@ section{
     }
   }
 }
+
+@media (max-width: 575.98px) {
+  section ul li{
+    width: 240px;
+    a .icon{
+      font-size: 20px;
+      padding: 8px 10px 5px 10px;
+    }
+    a .text{
+      padding: 5px;
+    }
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  section ul li{
+    width: 240px;
+    a .icon{
+      font-size: 20px;
+      padding: 8px 10px 5px 10px;
+    }
+    a .text{
+      padding: 5px;
+    }
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) and (max-width: 991.98px) {
+  section ul li{
+    width: 210px;
+    a .icon{
+      font-size: 20px;
+      padding: 8px 10px 5px 10px;
+    }
+    a .text{
+      padding: 5px;
+    }
+  }
+}
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  section ul li{
+    width: 250px;
+  }
+}

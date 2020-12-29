@@ -1,5 +1,7 @@
 section{
   .navigation{
+    background: rgba(0, 65, 123, 0.15);
+    border-radius: 3px;
     ul{
       li{
         list-style: none;
@@ -7,6 +9,7 @@ section{
         font-size: 14px;
         font-weight: 500;
         cursor: pointer;
+        padding: 5px;
       }
     }
   }
@@ -48,12 +51,6 @@ section{
   }
   .btnBlock{
     margin-top: 50px;
-    button{
-      margin: 10px 0;
-      display: block;
-      width: 100%;
-      padding: 10px 5px 0px 5px;
-    }
   }
   .downText{
     margin-top: -50px;
@@ -61,6 +58,56 @@ section{
       float: none;
       width: 140px;
       margin: 10px 0;
+    }
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+ section .downText{
+   margin-top: -20px;
+ }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  section {
+    .textProduct{
+      h1{
+        font-size: 16px;
+      }
+      ul li {
+        font-size: 15px;
+      }
+    }
+    .btnBlock {
+      margin-top: 5px;
+    }
+    .downText{
+      margin-top: 0px;
+    }
+  }
+}
+
+@media (max-width: 575.98px) {
+  section{
+    .navigation{
+      ul li{
+        font-size: 12px;
+      }
+    }
+    .textProduct{
+      h1{
+        font-size: 15px;
+      }
+      ul li {
+        font-size: 14px;
+        span{
+          font-size: 14px;
+        }
+      }
+    }
+    .btnBlock {
+      margin-top: 0px;
+    }
+    .downText{
+      margin-top: 10px;
     }
   }
 }

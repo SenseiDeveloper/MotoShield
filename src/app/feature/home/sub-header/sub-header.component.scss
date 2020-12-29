@@ -1,60 +1,53 @@
 .wrapContainer{
   position: relative;
-  min-height: 700px;
+  min-height: 600px;
   overflow: hidden;
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
   background: linear-gradient(90deg, rgba(0,28,68,1) 0%, rgba(1,86,153,1) 100%);
   z-index: 5;
   #subImgOne{
     position: absolute;
-    //left: -1%;
-    //bottom: -50%;
     z-index: 99;
     left: 0;
-    bottom: 0;
-    width: 35%;
-    //animation: fadeinLeft 1s linear;
-  }
-  /*#subImgOne{
-    position: absolute;
-    left: -1%;
-    bottom: -50%;
-    z-index: 99;
-    width: 50%;
+    bottom: -3px;
+    width: 30%;
     animation: fadeinLeft 1s linear;
-  }*/
+  }
   #subImgTwo{
     position: absolute;
-    right: -1%;
-    bottom: -10%;
+    right: 0;
+    bottom: -3px;
     z-index: 99;
-    width: 55%;
+    width: 45%;
     animation: fadeinRight 1s linear;
   }
 
   @keyframes fadeinLeft {
     from {
       opacity: 0;
-      bottom: -45%;
-      width: 45%;
+      left: -10%;
+      bottom: -25%;
+      width: 25%;
     }
     to   {
       opacity: 1;
-      bottom: -50%;
-      width: 50%;
+      bottom: -3px;
+      width: 30%;
     }
   }
 
   @keyframes fadeinRight {
     from {
       opacity: 0;
-      right: -5%;
-      bottom: -15%;
+      right: -10%;
+      bottom: -25%;
+      width: 40%;
     }
     to   {
       opacity: 1;
-      right: -1%;
-      bottom: -10%;
+      right: 0;
+      bottom: -3px;
+      width: 45%;
     }
   }
   .subContainer{
@@ -81,6 +74,12 @@
 
     .textContainer{
       margin-top: 50px;
+      width: 40%;
+      .btnWrap{
+        margin-top: 30px;
+        width: 300px;
+        font-size: 20px;
+      }
       h2{
         color: white;
         font-size: 18px;
@@ -93,48 +92,139 @@
         font-weight: 400;
       }
     }
-    .contactContainer{
-      margin-top: 40px;
-      position: relative;
-      z-index: 100;
-      ul{
-        li{
-          list-style: none;
-          display: inline-block;
-          padding: 10px 15px;
-          margin: 0 5px;
-          cursor: pointer;
-          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.25);
-          transition: all .4s;
-          border: 2px solid rgba(67,171,236,1);
-          border-radius: 25px;
+
+  }
+}
+@media (max-width: 575.98px) {
+  .wrapContainer{
+    min-height: 300px;
+    #subImgOne,
+    #subImgTwo{
+      display: none;
+    }
+    .subContainer{
+      padding: 10px;
+      img{
+        display: none;
+      }
+      .textContainer{
+        width: 90%;
+        margin-top: 20px;
+        .btnWrap{
+          width: 200px;
+          margin: 20px auto;
+        }
+        h1{
+          font-size: 14px;
+          text-align: center;
+        }
+        h2{
           font-size: 15px;
-          animation: fadeinButton 1s linear;
-          a{
-            text-decoration: none;
-            color: white;
-            text-transform: uppercase;
-            i{
-              color: rgba(67,171,236,1);
-            }
-          }
-        }
-        li:hover,
-        li:active{
-          box-shadow: 0 0 rgba(0,0,0,0.35), 0 4px 15px 0 rgba(0,0,0,0.55);
-          transition: all .4s;
-        }
-        @keyframes fadeinButton {
-          from {
-            opacity: 0;
-            margin: 50px 5px 0 5px;
-          }
-          to   {
-            opacity: 1;
-            margin: 0 5px;
-          }
+          text-align: center;
         }
       }
     }
   }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .wrapContainer{
+    min-height: 450px;
+    #subImgOne,
+    #subImgTwo{
+      display: none;
+    }
+    .subContainer{
+      padding: 10px;
+      img{
+        width: 300px;
+      }
+
+    }
+    .subContainer .textContainer{
+      .btnWrap{
+        width: 200px;
+      }
+      h1{
+        font-size: 15px;
+      }
+      h2{
+        font-size: 16px;
+      }
+    }
+    @keyframes fadeinImage {
+      from {
+        opacity: 0;
+        width: 250px;
+      }
+      to   {
+        opacity: 1;
+        width: 300px;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .wrapContainer{
+    min-height: 450px;
+    #subImgOne,
+    #subImgTwo{
+      display: none;
+    }
+    .subContainer{
+      padding: 10px;
+      img{
+        width: 350px;
+      }
+    }
+    .subContainer .textContainer{
+      .btnWrap{
+        width: 250px;
+      }
+      h1{
+        font-size: 16px;
+      }
+      h2{
+        font-size: 17px;
+      }
+    }
+    @keyframes fadeinImage {
+      from {
+        opacity: 0;
+        width: 300px;
+      }
+      to   {
+        opacity: 1;
+        width: 350px;
+      }
+    }
+  }
+  }
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+.wrapContainer{
+  min-height: 520px;
+  .subContainer .textContainer{
+    h1{
+      font-size: 16px;
+    }
+    h2{
+      font-size: 17px;
+    }
+  }
+  .subContainer img{
+    width: 400px;
+  }
+  @keyframes fadeinImage {
+    from {
+      opacity: 0;
+      width: 300px;
+    }
+    to   {
+      opacity: 1;
+      width: 400px;
+    }
+  }
+}
+
 }

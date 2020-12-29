@@ -1,40 +1,46 @@
 <aside>
-  <p class="sectionText filterTitle">
+  <button (click)="filterStates()">Фильтр</button>
+  <p class="sectionText filterTitle filter">
     Фильтр
   </p>
  <mat-form-field class="example-full-width">
     <mat-label>Поиск</mat-label>
     <input matInput placeholder="Поиск" value="">
   </mat-form-field>
-  <p class="sectionText filterTitle">
-    Категории
-  </p>
-  <ul class="category" >
-    <li
-      *ngFor="let cat of category"
-      (click)="filterCategory(cat)"
-      [class.active]="cat.filterKey === activeItem"
-    >
-      <i class="fas fa-toggle-on" *ngIf="cat.filterKey === activeItem"></i>
-      <i class="fas fa-toggle-off" *ngIf="cat.filterKey !== activeItem"></i>
-      {{cat.name}}
-      <span>({{categoryCounter ? categoryCounter[cat.filterKey]: ""}})</span>
-    </li>
-  </ul>
-  <p class="sectionText filterTitle">
-    Размер
-  </p>
-  <ul class="size">
-    <ng-container *ngFor="let cat of sizeCounter">
-      <li
-        (click)="filterSize(cat)"
-        [class.active]="cat.name === activeSizeItem"
+  <div class="filterBlock" *ngIf="filterState">
+    <p class="sectionText filterTitle">
+      Категории
+    </p>
+    <div class="category" >
+      <div class="radio-container"
+           *ngFor="let cat of category"
+           (click)="filterCategory(cat)"
       >
-        <i class="fas fa-toggle-on" *ngIf="cat.name === activeSizeItem"></i>
-        <i class="fas fa-toggle-off" *ngIf="cat.name !== activeSizeItem"></i>
-        {{cat.name}}
-        <span>({{cat.filterSize}})</span>
-      </li>
-    </ng-container>
-  </ul>
+        <input type="radio" name="group1" id="{{cat.name}}" [checked]="cat.filterKey === activeItem">
+        <label for="{{cat.name}}">
+            <span class="radio">
+              {{cat.name}}
+              <span>({{categoryCounter ? categoryCounter[cat.filterKey]: ""}})</span>
+            </span>
+        </label>
+      </div>
+    </div>
+    <p class="sectionText filterTitle">
+      Размер
+    </p>
+    <div class="size">
+      <div class="radio-container"
+           *ngFor="let size of sizeCounter"
+           (click)="filterSize(size)"
+      >
+        <input type="radio" name="group2" id="{{size.name}}" [checked]="size.name === activeSizeItem">
+        <label for="{{size.name}}">
+            <span class="radio">
+              {{size.name}}
+              <span>({{size.filterSize}})</span>
+            </span>
+        </label>
+      </div>
+    </div>
+  </div>
 </aside>

@@ -1,14 +1,19 @@
 <p mat-dialog-title>Заполните заявку и наш менеджер свяжеться с вами. </p>
-<div mat-dialog-content>
-  <mat-form-field class="full-width">
-    <mat-label>Номер телефона</mat-label>
-    <input matInput placeholder="Номер телефона" value="+380">
-  </mat-form-field>
-  <mat-form-field class="full-width">
-    <mat-label>Комментарий</mat-label>
-    <textarea matInput placeholder="Комментарий"></textarea>
-  </mat-form-field>
-  <button class="shoppingButton">
-    <p>Отправить заявку</p>
-  </button>
+  <div mat-dialog-content *ngIf="sendStatus">
+    <form [formGroup]="callbackForm" (ngSubmit)="submit()">
+      <mat-form-field class="full-width">
+        <mat-label>Номер телефона</mat-label>
+        <input matInput placeholder="Номер телефона"  formControlName="phone">
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>Комментарий</mat-label>
+        <textarea matInput placeholder="Комментарий" formControlName="commend"></textarea>
+      </mat-form-field>
+      <button class="shoppingButton" [disabled]="callbackForm.invalid">
+        <p>Отправить заявку</p>
+      </button>
+    </form>
+  </div>
+<div mat-dialog-content *ngIf="!sendStatus">
+  <p class="sectionText green">{{msg}}</p>
 </div>

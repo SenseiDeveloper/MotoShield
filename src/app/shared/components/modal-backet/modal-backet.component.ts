@@ -5,7 +5,6 @@ import {takeUntil} from 'rxjs/operators';
 import {HomeProductModel} from '../../model/home-product.model';
 import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
-import {element} from 'protractor';
 
 @Component({
   selector: 'app-modal-backet',
@@ -37,7 +36,7 @@ export class ModalBacketComponent implements OnInit, OnDestroy {
       );
   }
 
-  redirectProduct(id: number) {
+  redirectProduct(id: string) {
     this.dialog.closeAll();
     this.router.navigate([`product/${id}`]);
   }
@@ -50,6 +49,10 @@ export class ModalBacketComponent implements OnInit, OnDestroy {
 
     const newProducts = this.products.filter(el => el.id !== id);
     this.products = newProducts;
+  }
+
+  closeDialod() {
+    this.dialog.closeAll();
   }
 
   ngOnDestroy(): void {

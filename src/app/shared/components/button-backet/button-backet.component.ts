@@ -32,7 +32,8 @@ export class ButtonBacketComponent implements OnInit {
       }
     }
     this.dialog.open(ModalBacketComponent, {
-      width: '700px'
+      panelClass: 'basket-modal',
+      width: '80%'
     });
   }
 }

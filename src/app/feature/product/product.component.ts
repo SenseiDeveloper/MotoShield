@@ -5,8 +5,6 @@ import { Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
 import {ProductModel} from '../../shared/model/product.model';
 import { NgxGalleryImage, NgxGalleryOptions} from '@kolkov/ngx-gallery';
-import {MatDialog} from '@angular/material/dialog';
-import {CallbackModalComponent} from '../../shared/components/callback-modal/callback-modal.component';
 
 
 
@@ -24,8 +22,7 @@ export class ProductComponent implements OnInit, OnDestroy {
 
   constructor(
     private activeRouter: ActivatedRoute,
-    private productService: ProductsService,
-    public dialog: MatDialog
+    private productService: ProductsService
   ) { }
 
   ngOnInit(): void {
@@ -33,14 +30,6 @@ export class ProductComponent implements OnInit, OnDestroy {
     this.initGalleryOptions();
   }
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(CallbackModalComponent, {
-      width: '350px'
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
-  }
 
   initGalleryOptions(){
     this.galleryOptions = [
@@ -54,18 +43,20 @@ export class ProductComponent implements OnInit, OnDestroy {
       },
       // max-width 800
       {
-        breakpoint: 800,
+        breakpoint: 991,
         width: '100%',
-        height: '600px',
+        height: '500px',
         imagePercent: 80,
-        thumbnailsPercent: 20,
-        thumbnailsMargin: 20,
-        thumbnailMargin: 20
+        thumbnailsPercent: 15,
+        thumbnailsMargin: 15,
+        thumbnailMargin: 15
       },
       // max-width 400
       {
         breakpoint: 400,
-        preview: false
+        width: '100%',
+        height: '300px',
+        preview: true
       }
     ];
   }

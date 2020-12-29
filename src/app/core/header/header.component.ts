@@ -18,11 +18,9 @@ export class HeaderComponent implements OnInit {
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(ModalBacketComponent, {
-      width: '700px'
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+     this.dialog.open(ModalBacketComponent, {
+       panelClass: 'basket-modal',
+       width: '80%'
     });
   }
 }

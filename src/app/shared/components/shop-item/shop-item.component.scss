@@ -90,3 +90,37 @@
     background: grey;
   }
 }
+
+@media (max-width: 575.98px) {
+  .itemShop{
+    .imgContainer .sizeContainer p{
+      font-size: 14px;
+    }
+    .textItem p{
+      margin-top: 0;
+      margin-bottom: 10px;
+      text-align: center;
+      span img{
+        width: 8%;
+      }
+    }
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .itemShop{
+   .textItem p{
+      margin-top: 0;
+      margin-bottom: 10px;
+      text-align: center;
+     span img{
+       width: 10%;
+     }
+    }
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .itemShop p {
+    font-size: 14px;
+  }
+}

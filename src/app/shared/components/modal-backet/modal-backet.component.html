@@ -20,6 +20,13 @@
         </ul>
       </div>
     </ng-container>
-    <button *ngIf="products?.length !== 0" class="viewButton">Оформить заказ</button>
+    <div class="btnContainer">
+      <button *ngIf="products?.length !== 0" class="shoppingButton">Оформить заказ</button>
+      <button
+        *ngIf="products?.length !== 0"
+        class="viewButton"
+        (click)="closeDialod()"
+      >Продолжить покупки</button>
+    </div>
   </div>
 </div>

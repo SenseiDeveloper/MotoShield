@@ -1,7 +1,11 @@
 .topFooter{
   text-align: center;
-  border-bottom: 1px solid #42c4f6;
-  margin-bottom: 20px;
+  .ln{
+    background: #42c4f6;
+    height: 1px;
+    width: 40%;
+    margin: 5px auto;
+  }
   ul{
     li{
       list-style: none;
@@ -12,17 +16,35 @@
       margin: 5px 10px;
       a{
         color: white;
-      }
-      img{
-        width: 20px;
-        height: auto;
+        i{
+          color: #42c4f6;
+        }
       }
     }
   }
 }
 p{
-  color: white;
+  font-weight: 400;
   font-size: 16px;
+  margin: 0;
+  padding: 0;
+  color: gainsboro;
   text-align: center;
 }
+@media (max-width: 575.98px) {
+  p{
+    font-size: 13px;
+  }
+  .topFooter ul li{
+    font-size: 14px;
+  }
+}
 
+@media (min-width: 576px) and (max-width: 767.98px) {
+  p{
+    font-size: 15px;
+  }
+  .topFooter ul li{
+    font-size: 15px;
+  }
+}

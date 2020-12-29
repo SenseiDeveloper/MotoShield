@@ -9,20 +9,25 @@ import { CallbackModalComponent } from './components/callback-modal/callback-mod
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
 import { ButtonBacketComponent } from './components/button-backet/button-backet.component';
+import { ButtonCallbackComponent } from './components/button-callback/button-callback.component';
+import {MailService} from './service/mail.service';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 
 
 @NgModule({
-  declarations: [ShopItemComponent, ModalBacketComponent, CallbackModalComponent, ButtonBacketComponent],
-  exports: [ShopItemComponent, CallbackModalComponent, ButtonBacketComponent ],
+  declarations: [ShopItemComponent, ModalBacketComponent, CallbackModalComponent, ButtonBacketComponent, ButtonCallbackComponent],
+  exports: [ShopItemComponent, CallbackModalComponent, ButtonBacketComponent, ButtonCallbackComponent],
   imports: [
     CommonModule,
     HttpClientModule,
     RouterModule,
     MatDialogModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [ApiBaseService]
+  providers: [ApiBaseService, MailService]
 })
 export class SharedModule { }

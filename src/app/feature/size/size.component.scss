@@ -1,15 +1,28 @@
 section{
-  padding: 20px;
-  min-height: 800px;
-  .tb{
-    width: 100%;
-  }
-  table{
-    border: 1px solid grey;
-    tr{
-      td{
-        padding: 10px;
+  .sizeBlock{
+    margin: 20px 0;
+    h5{
+      margin: 5px 0;
+      text-transform: uppercase;
+      img{
+        display: block;
+        width: 30px;
+        height: auto;
+        float: left;
+        margin: 5px 10px;
       }
     }
+    img{
+      width: 100%;
+      display: block;
+    }
+    p{
+      margin: 5px;
+    }
+  }
+}
+@media (max-width: 575.98px) {
+  section .sizeBlock h5 img{
+    width: 20px;
   }
 }

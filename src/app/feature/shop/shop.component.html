@@ -1,17 +1,17 @@
 <section class="wrapSection">
   <div class="container">
     <div class="row">
-      <div class="col-xl-3">
+      <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12">
         <app-filter
           [sizeCounter] = "activeCategorySize"
           (categoryEvent)="newCategory($event)"
           (sizeEvent)="sizeProducts($event)"
         ></app-filter>
       </div>
-      <div class="col-xl-9">
+      <div class="col-xl-9 col-lg-9 col-md-8 col-sm-12 col-xs-12">
         <div class="row">
           <ng-container *ngFor="let item of listProducts">
-            <div class="col-xl-6">
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-6 col-xs-12">
               <app-shop-item [listProduct]="item"></app-shop-item>
             </div>
           </ng-container>

@@ -28,4 +28,33 @@ section{
     }
   }
 }
+@media (max-width: 575.98px) {
+  section .category .categoryItem{
+    margin: 10px 0;
+    p{
+      font-weight: 500;
+    }
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  section .category .categoryItem{
+    margin: 10px 0;
+    p{
+      font-weight: 500;
+    }
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  section .category .categoryItem p{
+    font-weight: 500;
+  }
+}
 
+@media (max-width: 575.98px) {
+  section .category .categoryItem{
+    margin: 10px 0;
+    .icon img{
+      max-width: 20%;
+    }
+  }
+}

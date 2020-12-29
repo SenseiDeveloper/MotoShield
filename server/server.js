@@ -3,6 +3,7 @@ const app  = express();
 const bodyParser = require('body-parser');
 
 const cors = require('cors');
+const nodemailer = require("nodemailer");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
@@ -308,6 +309,38 @@ app.post('/api/products-basket',cors(),function(req, res){
   res.status(200).send(newIteams);
 });
 
+app.post('/api/callback-mail',cors(),function (req,res) {
+
+  const dataEmail = req.body;
+
+  async function main() {
+    let transporter = nodemailer.createTransport({
+      host: 'smtp.ethereal.email',
+      port: 587,
+      auth: {
+        user: 'lorena.friesen@ethereal.email',
+        pass: 's2N9cgzSguAfRkQ3bx'
+      }
+    });
+
+    // send mail with defined transport object
+    let info = await transporter.sendMail({
+      from: "Moto Shield", // sender address
+      to: "motoshield2018@gmail.com", // list of receivers
+      subject: "Moto Shield", // Subject line
+      text: dataEmail.phone // plain text body
+    });
+
+    console.log("Message sent: %s", info.messageId);
+    // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+
+    // Preview only available when sending through an Ethereal account
+    console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+    // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+    res.status(200).send(JSON.stringify('Заявка отправлена'));
+  }
+  main().catch(console.error);
+});
 
 app.listen(9000,function(){
   console.log('Api app started');

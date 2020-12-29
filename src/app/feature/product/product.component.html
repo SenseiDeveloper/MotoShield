@@ -1,7 +1,7 @@
 <section *ngIf="product ? true:''" class="wrapSection">
   <div class="container">
     <div class="row">
-      <div class="col-xl-12">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="navigation">
           <ul>
             <li [routerLink]="['/shop']" >Мотоэкипировка ></li>
@@ -9,10 +9,10 @@
           </ul>
         </div>
       </div>
-      <div class="col-xl-8">
+      <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12">
         <ngx-gallery  [images]="galleryImages" [options]="galleryOptions" class="ngx-gallery"></ngx-gallery>
       </div>
-      <div class="col-xl-4">
+      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
         <div class="textProduct">
           <h1 class="sectionH1">{{product['name']}}</h1>
           <div class="line"></div>
@@ -35,14 +35,12 @@
             </li>
           </ul>
           <div class="btnBlock">
-            <button class="callbackButton" (click)="openDialog()">
-              <p>Перезвоните мне</p>
-            </button>
+            <app-button-callback [btnText]="'Перезвоните мне'"></app-button-callback>
             <app-button-backet [buttonName]="'Добавить в корзину'" [productID]="product['id']"></app-button-backet>
           </div>
         </div>
       </div>
-      <div class="col-xl-12">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="downText">
           <span>Характеристики</span>
         </div>

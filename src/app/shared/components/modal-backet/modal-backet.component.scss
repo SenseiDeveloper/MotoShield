@@ -1,3 +1,7 @@
+.cdk-overlay-pane{
+  height:auto;
+  min-width: 80% !important;
+}
 .wrapBasket{
   .item{
     padding: 5px;
@@ -54,9 +58,63 @@
     background: gainsboro;
     transition: all .4s;
   }
-  button{
-    color: white;
-    margin: 5px 0px 10px 0px;
-    float: right;
+  .btnContainer{
+    button{
+      color: white;
+      margin: 5px;
+      outline: none;
+      float: right;
+      font-size: 14px;
+      padding: 8px 13px;
+      text-transform: uppercase;
+    }
+  }
+}
+@media (max-width: 575.98px) {
+  .wrapBasket .item {
+    img{
+      width: 80%;
+      height: auto;
+    }
+    ul li{
+      padding: 5px 0;
+      h5{
+        font-size: 14px;
+      }
+
+    }
+  }
+  .basket-modal .mat-dialog-container{
+    height:auto;
+    width: 90%;
+  }
+  button p{
+    font-size: 13px;
+  }
+  .btnContainer{
+    button{
+      display: block;
+      width: 100%;
+    }
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .wrapBasket .item {
+    img{
+      width: 100px;
+      height: auto;
+    }
+    ul li{
+      h5{
+        font-size: 14px;
+      }
+    }
+  }
+  .basket-modal .mat-dialog-container{
+    height:auto;
+    width: 40%;
+  }
+  button p{
+    font-size: 14px;
   }
 }

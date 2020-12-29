@@ -25,30 +25,26 @@ button{
   }
 }
 
-/*.shoppingButton{
-  background: linear-gradient(90deg, rgba(211,4,182,1) 0%, rgba(122,26,250,1) 100%);
-  border-radius: 25px;
-  display: flex;
-  cursor: pointer;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.45);
-  transition: all .4s;
-  outline: none;
-  border: none;
-  .shoppingIcon{
-    display: block;
-    margin: 0 10px;
-    color:white;
-    width: 20px;
-  }
-  p{
-    text-transform: uppercase;
-    color: white;
-  }
-}
-
-.shoppingButton:hover,
-.shoppingButton:active{
+button:hover,
+button:active{
   box-shadow: 0 0 rgba(0,0,0,0.18), 0 4px 15px 0 rgba(0,0,0,0.65);
   transition: all .4s;
   outline: none !important;
-}*/
+}
+@media (max-width: 575.98px) {
+  button{
+    padding: 5px 10px 0 1px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  button{
+    padding: 6px 10px 0 10px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  button{
+    padding: 6px 10px 0 10px;
+  }
+}

@@ -18,10 +18,6 @@ export class ProductsService extends ApiBaseService{
     return this.get('new-products');
   }
 
-  getAllProducts(): Observable<HomeProductModel[]> {
-    return this.get('products');
-  }
-
   getFilterProducts(filter: {}): Observable<HomeProductModel[]> {
     return  this.post('filter-products', filter);
   }

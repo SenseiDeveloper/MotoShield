@@ -1,8 +1,9 @@
 import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {CategoryModel} from '../../../shared/model/category.model';
 import {ProductsService} from '../../../shared/service/products.service';
-import {take, takeUntil} from 'rxjs/operators';
+import { takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
+import {ThemePalette} from '@angular/material/core';
 
 @Component({
   selector: 'app-filter',
@@ -13,12 +14,14 @@ export class FilterComponent implements OnInit, OnDestroy {
 
   @Output() categoryEvent = new EventEmitter();
   @Output() sizeEvent = new EventEmitter();
+  @Input() sizeCounter: CategoryModel[];
 
   unsubscribe: Subject<void> = new Subject<void>();
   activeItem: string;
   activeSizeItem: string;
   categoryCounter: CategoryModel[];
-  @Input() sizeCounter: CategoryModel[];
+  color: ThemePalette = 'primary';
+  filterState: boolean = true;
 
   category: CategoryModel[] = [
     {
@@ -76,6 +79,10 @@ export class FilterComponent implements OnInit, OnDestroy {
     this.activeSizeItem = event.name;
     localStorage.setItem('filterSize', event.name);
     this.sizeEvent.emit(event.name);
+  }
+
+  filterStates() {
+    this.filterState = !this.filterState;
   }
 
   ngOnDestroy(): void {

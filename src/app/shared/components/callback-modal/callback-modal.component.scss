@@ -1,6 +1,11 @@
 p{
   font-size: 16px;
 }
+.green{
+  color: #42c4f6;
+  text-transform: uppercase;
+  font-weight: 500;
+}
 .full-width{
   width: 100%;
 }
@@ -9,4 +14,25 @@ button{
   display: block;
   width: 100%;
   padding: 10px 5px 0px 5px;
+  p{
+    font-size: 14px;
+  }
+}
+@media (max-width: 575.98px) {
+  .callback-modal .mat-dialog-container{
+    height:auto;
+    width: 90%;
+  }
+  button p{
+    font-size: 13px;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .callback-modal .mat-dialog-container{
+    height:auto;
+    width: 40%;
+  }
+  button p{
+    font-size: 14px;
+  }
 }
