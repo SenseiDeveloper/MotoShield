@@ -1,25 +1,23 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import { Subject} from 'rxjs';
-import {ProductsService} from '../../service/products.service';
 import {takeUntil} from 'rxjs/operators';
-import {HomeProductModel} from '../../model/home-product.model';
+import {HomeProductModel} from '../../shared/model/home-product.model';
+import {Subject} from 'rxjs';
+import {ProductsService} from '../../shared/service/products.service';
 import {Router} from '@angular/router';
-import {MatDialog} from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-modal-backet',
-  templateUrl: './modal-backet.component.html',
-  styleUrls: ['./modal-backet.component.scss']
+  selector: 'app-pay',
+  templateUrl: './pay.component.html',
+  styleUrls: ['./pay.component.scss']
 })
-export class ModalBacketComponent implements OnInit, OnDestroy {
+export class PayComponent implements OnInit, OnDestroy {
 
-  products: HomeProductModel[];
   unsubscribe: Subject<void> = new Subject<void>();
+  products: HomeProductModel[];
 
   constructor(
     private productService: ProductsService,
-    private router: Router,
-    public dialog: MatDialog
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -29,7 +27,7 @@ export class ModalBacketComponent implements OnInit, OnDestroy {
   initProducts() {
     const products = JSON.parse(localStorage.getItem('backet'));
     this.productService.getProductsForBasket(products)
-    .pipe(takeUntil(this.unsubscribe))
+      .pipe(takeUntil(this.unsubscribe))
       .subscribe(
         ( products: HomeProductModel[] ) => this.products = products,
         error => console.log(error)
@@ -37,7 +35,6 @@ export class ModalBacketComponent implements OnInit, OnDestroy {
   }
 
   redirectProduct(id: string) {
-    this.dialog.closeAll();
     this.router.navigate([`product/${id}`]);
   }
 
@@ -51,16 +48,8 @@ export class ModalBacketComponent implements OnInit, OnDestroy {
     this.products = newProducts;
   }
 
-  closeDialod() {
-    this.dialog.closeAll();
-  }
-
-  redirectToPay() {
-    this.dialog.closeAll();
-    this.router.navigate([`pay/`]);
-  }
-
   ngOnDestroy(): void {
     this.unsubscribe.next();
   }
+
 }

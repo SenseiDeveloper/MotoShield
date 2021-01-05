@@ -3,7 +3,7 @@
   <p *ngIf="products?.length === 0">В корзине нет товаров</p>
   <div class="wrapBasket" >
     <ng-container *ngFor="let product of products">
-      <div class="item" (click)="redirectProduct(product.id)">
+      <div class="item" (click)="redirectProduct(product._id)">
         <ul>
           <li>
             <img src="../../../assets/image/{{product.img1}}" alt="{{product.name}}">
@@ -13,7 +13,7 @@
             <p>{{product.price}} <span><img src="../../../assets/image/filterIcon/uah.svg" alt="uah"></span></p>
           </li>
           <li>
-            <button (click)="removeProduct(product.id); $event.stopPropagation()">
+            <button (click)="removeProduct(product._id); $event.stopPropagation()">
               <i class="fas fa-trash"></i>
             </button>
           </li>
@@ -21,7 +21,7 @@
       </div>
     </ng-container>
     <div class="btnContainer">
-      <button *ngIf="products?.length !== 0" class="shoppingButton">Оформить заказ</button>
+      <button *ngIf="products?.length !== 0" class="shoppingButton" (click)="redirectToPay()">Оформить заказ</button>
       <button
         *ngIf="products?.length !== 0"
         class="viewButton"

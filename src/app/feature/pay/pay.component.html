@@ -1,0 +1,38 @@
+<section class="wrapSection">
+  <h5 class="sectionTitle">
+    Корзина и оформление заказа
+  </h5>
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-6">
+        <form>
+
+        </form>
+      </div>
+      <div class="col-xl-6">
+        <div class="wrapItem">
+          <ng-container *ngFor="let product of products">
+            <div class="col-xl-12">
+              <div class="item" (click)="redirectProduct(product._id)">
+                <ul>
+                  <li>
+                    <img src="../../../assets/image/{{product.img1}}" alt="{{product.name}}">
+                  </li>
+                  <li>
+                    <h5>{{product.name}}</h5>
+                    <p>{{product.price}} <span><img src="../../../assets/image/filterIcon/uah.svg" alt="uah"></span></p>
+                  </li>
+                  <li>
+                    <button (click)="removeProduct(product._id); $event.stopPropagation()">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

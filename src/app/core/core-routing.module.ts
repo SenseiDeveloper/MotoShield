@@ -10,7 +10,8 @@ const routes: Routes = [
   { path: 'size', loadChildren: () => import('../feature/size/size.module').then( m => m.SizeModule )},
   { path: 'contacts', loadChildren: () => import('../feature/contact/contact.module').then( m => m.ContactModule)},
   { path: 'billpay', loadChildren: () => import('../feature/billpay/billpay.module').then( m => m.BillpayModule)},
-  { path: 'product/:id', loadChildren: () => import('../feature/product/product.module').then( m => m.ProductModule)}
+  { path: 'product/:id', loadChildren: () => import('../feature/product/product.module').then( m => m.ProductModule)},
+  { path: 'pay', loadChildren: () => import('../feature/pay/pay.module').then( m => m.PayModule)}
 ];
 
 @NgModule({

@@ -1,5 +1,5 @@
 export interface HomeProductModel {
-  readonly id?: string;
+  readonly _id?: string;
   name: string;
   discount: number;
   data: string;
