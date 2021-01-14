@@ -125,6 +125,9 @@ aside{
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
   aside{
+    button{
+      display: none;
+    }
     .radio-container span{
       font-size: 15px;
     }

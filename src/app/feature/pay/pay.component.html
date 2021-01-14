@@ -4,23 +4,152 @@
   </h5>
   <div class="container">
     <div class="row">
-      <div class="col-xl-6">
-        <form>
+      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+        <form [formGroup]="payForm" (ngSubmit)="submit()">
+          <p class="sectionText">Способ оплаты:</p>
+          <mat-form-field appearance="fill">
+            <mat-label>Выберите способ оплаты</mat-label>
+            <mat-select formControlName="selectPay">
+              <mat-option
+                *ngFor="let opt of payOption"
+                [value]="opt"
+              >
+                <i class="fas fa-wallet"></i> {{opt}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
 
+          <p class="sectionText">Способ доставки:</p>
+          <mat-form-field appearance="fill">
+            <mat-label>Способ доставки</mat-label>
+            <mat-select (selectionChange)="changeDelivery($event.value)" formControlName="selectDelivery">
+              <mat-option
+                *ngFor="let opt of deliveryOption"
+                [value]="opt"
+              >
+                <i class="fas fa-truck"></i> {{opt}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <div class="optionDelivery" *ngIf="selectDelivery === 'Новая почта'">
+            <mat-form-field appearance="fill">
+              <mat-label>Получить</mat-label>
+              <mat-select (selectionChange)="changeDep($event.value)" formControlName="delivery">
+                <mat-option
+                  *ngFor="let opt of optionSend"
+                  [value]="opt"
+                >
+                  {{opt}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <div class="dropDown">
+              <mat-form-field class="example-full-width">
+                <mat-label>Укажите город</mat-label>
+                <input matInput
+                         placeholder="Укажите город"
+                       [value]="cityValue"
+                       (input)="searchCity($event.target.value)"
+                      formControlName="city"
+                >
+              </mat-form-field>
+              <ul *ngIf="cityState">
+                <li
+                  *ngFor="let city of cityData"
+                  (click)="setCityValue(city)"
+                >{{city.city}}</li>
+              </ul>
+            </div>
+
+            <mat-form-field appearance="fill" *ngIf="selectDep === 'В отделении'">
+              <mat-label>Отделение</mat-label>
+              <mat-select formControlName="deliveryShip">
+                <mat-option
+                  *ngFor="let opt of deliveryData"
+                  [value]="opt"
+                >
+                  {{opt}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <div class="dropDown">
+              <mat-form-field class="example-full-width" *ngIf="selectDep === 'Курьером'">
+                <mat-label>Укажите улицу</mat-label>
+                <input matInput
+                       placeholder="Укажите адрес"
+                       [value]="streetValue"
+                       (input)="searchStreet($event.target.value)"
+                       formControlName="street"
+                >
+              </mat-form-field>
+              <ul *ngIf="streetState">
+                <li
+                  *ngFor="let street of streetData"
+                  (click)="setStreetValue(street)"
+                >{{street}}</li>
+              </ul>
+            </div>
+          </div>
+
+          <mat-form-field class="example-full-width" *ngIf="selectDep === 'Курьером'">
+            <mat-label>Укажите номер дома/кв.</mat-label>
+            <input matInput placeholder="Укажите номер дома/кв." value="" formControlName="streetAddress">
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" *ngIf="selectDelivery === 'Пункты самовывоза'">
+            <mat-label>Пункты самовывоза</mat-label>
+            <mat-select formControlName="shipAddress">
+              <mat-option
+                *ngFor="let opt of optionCity"
+                [value]="opt"
+              >
+                {{opt}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <p class="sectionText">Информация о получателе:</p>
+          <mat-form-field class="example-full-width">
+            <mat-label>Имя</mat-label>
+            <input matInput placeholder="Имя" value="" formControlName="name">
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Фамилия</mat-label>
+            <input matInput placeholder="Фамилия" value="" formControlName="firstName">
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Отчество</mat-label>
+            <input matInput placeholder="Отчество" value="" formControlName="secondName">
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Телефон</mat-label>
+            <input matInput placeholder="Телефон" value="" type="number" formControlName="phone">
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Комментарий</mat-label>
+            <textarea matInput placeholder="Комментарий" formControlName="commend"></textarea>
+          </mat-form-field>
+          <button class="shoppingButton"
+                  [disabled]="payForm.invalid"
+                  [ngClass]="{disabledShBtn: payForm.invalid}"
+          >Подтвердить заказ</button>
         </form>
       </div>
-      <div class="col-xl-6">
+      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
         <div class="wrapItem">
           <ng-container *ngFor="let product of products">
-            <div class="col-xl-12">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
               <div class="item" (click)="redirectProduct(product._id)">
                 <ul>
                   <li>
                     <img src="../../../assets/image/{{product.img1}}" alt="{{product.name}}">
                   </li>
                   <li>
-                    <h5>{{product.name}}</h5>
-                    <p>{{product.price}} <span><img src="../../../assets/image/filterIcon/uah.svg" alt="uah"></span></p>
+                    <h5 class="sectionH5">{{product.name}}</h5>
+                    <p class="sectionText">{{product.price}} <span><img src="../../../assets/image/filterIcon/uah.svg" alt="uah"></span></p>
                   </li>
                   <li>
                     <button (click)="removeProduct(product._id); $event.stopPropagation()">
@@ -32,7 +161,12 @@
             </div>
           </ng-container>
         </div>
+        <div class="wrapItem">
+          <h5 class="sectionH5 pay">К оплате <span>{{payCounter}} грн</span></h5>
+          <p class="sectionText pay">Доставка Нова Пошта <span>От 45 грн</span></p>
+        </div>
       </div>
     </div>
   </div>
 </section>
+<app-modal-callback *ngIf="message" [mes]="message"></app-modal-callback>

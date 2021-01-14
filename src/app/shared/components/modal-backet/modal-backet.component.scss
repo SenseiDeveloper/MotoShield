@@ -73,7 +73,7 @@
 @media (max-width: 575.98px) {
   .wrapBasket .item {
     img{
-      width: 80%;
+      width:100px;
       height: auto;
     }
     ul li{
@@ -81,7 +81,6 @@
       h5{
         font-size: 14px;
       }
-
     }
   }
   .basket-modal .mat-dialog-container{

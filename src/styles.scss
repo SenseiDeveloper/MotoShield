@@ -105,6 +105,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   outline: none !important;
 }
 
+.disabledShBtn{
+  background: grey;
+}
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575.98px) {
   .wrapSection{

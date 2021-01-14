@@ -11,6 +11,7 @@ export class ButtonBacketComponent implements OnInit {
 
   @Input() buttonName: string;
   @Input() productID: number;
+  @Input() ds: number;
 
   constructor(
     public dialog: MatDialog
@@ -33,7 +34,7 @@ export class ButtonBacketComponent implements OnInit {
     }
     this.dialog.open(ModalBacketComponent, {
       panelClass: 'basket-modal',
-      width: '80%'
+      width: '90%'
     });
   }
 }

@@ -1,4 +1,7 @@
-<button (click)="addBacket(); $event.stopPropagation()">
+<button
+  (click)="addBacket(); $event.stopPropagation()"
+  [disabled]="ds === 1"
+>
   <div class="shoppingIcon">
     <i class="fas fa-shopping-bag"></i>
   </div>

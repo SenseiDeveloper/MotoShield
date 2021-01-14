@@ -17,4 +17,8 @@ export class MailService extends ApiBaseService {
     return this.post('callback-mail', value);
   }
 
+  sendPayInvoice(invoice: any): Observable<string> {
+    return this.post('invoice', invoice);
+  }
+
 }

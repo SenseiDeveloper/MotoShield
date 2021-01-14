@@ -29,8 +29,10 @@ button:active{
   outline: none !important;
 }
 @media (max-width: 575.98px) {
-  .callbackButton p{
-    font-size: 13px;
+  .callbackButton {
+    p{
+      font-size: 13px;
+    }
   }
 }
 

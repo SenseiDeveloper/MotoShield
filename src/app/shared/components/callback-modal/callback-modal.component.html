@@ -3,13 +3,13 @@
     <form [formGroup]="callbackForm" (ngSubmit)="submit()">
       <mat-form-field class="full-width">
         <mat-label>Номер телефона</mat-label>
-        <input matInput placeholder="Номер телефона"  formControlName="phone">
+        <input matInput placeholder="Номер телефона"  formControlName="phone" type="number">
       </mat-form-field>
       <mat-form-field class="full-width">
         <mat-label>Комментарий</mat-label>
         <textarea matInput placeholder="Комментарий" formControlName="commend"></textarea>
       </mat-form-field>
-      <button class="shoppingButton" [disabled]="callbackForm.invalid">
+      <button class="shoppingButton" [disabled]="callbackForm.invalid" [ngClass]="{disabledShBtn: callbackForm.invalid}">
         <p>Отправить заявку</p>
       </button>
     </form>

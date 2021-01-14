@@ -10,7 +10,6 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
 import { ButtonBacketComponent } from './components/button-backet/button-backet.component';
 import { ButtonCallbackComponent } from './components/button-callback/button-callback.component';
-import {MailService} from './service/mail.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
@@ -28,6 +27,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [ApiBaseService, MailService]
+  providers: [ApiBaseService]
 })
 export class SharedModule { }

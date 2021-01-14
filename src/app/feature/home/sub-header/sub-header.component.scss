@@ -8,8 +8,8 @@
   #subImgOne{
     position: absolute;
     z-index: 99;
-    left: 0;
-    bottom: -3px;
+    left: -2px;
+    bottom: -35px;
     width: 30%;
     animation: fadeinLeft 1s linear;
   }
@@ -31,7 +31,7 @@
     }
     to   {
       opacity: 1;
-      bottom: -3px;
+      bottom: -35px;
       width: 30%;
     }
   }
@@ -97,7 +97,7 @@
 }
 @media (max-width: 575.98px) {
   .wrapContainer{
-    min-height: 300px;
+    min-height: 220px;
     #subImgOne,
     #subImgTwo{
       display: none;
@@ -137,18 +137,19 @@
       padding: 10px;
       img{
         width: 300px;
+        margin-left: -50px;
       }
-
-    }
-    .subContainer .textContainer{
-      .btnWrap{
-        width: 200px;
-      }
-      h1{
-        font-size: 15px;
-      }
-      h2{
-        font-size: 16px;
+      .textContainer{
+        width: 45%;
+        .btnWrap{
+          width: 200px;
+        }
+        h1{
+          font-size: 15px;
+        }
+        h2{
+          font-size: 16px;
+        }
       }
     }
     @keyframes fadeinImage {
@@ -176,16 +177,16 @@
       img{
         width: 350px;
       }
-    }
-    .subContainer .textContainer{
-      .btnWrap{
-        width: 250px;
-      }
-      h1{
-        font-size: 16px;
-      }
-      h2{
-        font-size: 17px;
+      .textContainer{
+        .btnWrap{
+          width: 250px;
+        }
+        h1{
+          font-size: 16px;
+        }
+        h2{
+          font-size: 17px;
+        }
       }
     }
     @keyframes fadeinImage {
@@ -204,16 +205,18 @@
 @media (min-width: 992px) and (max-width: 1199.98px) {
 .wrapContainer{
   min-height: 520px;
-  .subContainer .textContainer{
-    h1{
-      font-size: 16px;
+  .subContainer{
+    .textContainer{
+      h1{
+        font-size: 16px;
+      }
+      h2{
+        font-size: 17px;
+      }
     }
-    h2{
-      font-size: 17px;
+    img{
+      width: 400px;
     }
-  }
-  .subContainer img{
-    width: 400px;
   }
   @keyframes fadeinImage {
     from {
@@ -226,5 +229,4 @@
     }
   }
 }
-
 }

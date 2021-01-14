@@ -1,4 +1,50 @@
+form{
+  background: rgba(0, 65, 123, 0.06);
+  border-radius: 3px;
+  padding: 20px 10px;
+  button{
+    font-size: 14px;
+    color: white;
+    text-transform: uppercase;
+    padding: 10px;
+    text-align: center;
+    margin: 0 auto;
+  }
+  mat-form-field{
+    width: 100%;
+  }
+  textarea.mat-input-element {
+    resize: none;
+  }
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  .dropDown{
+    ul{
+      background: rgba(0, 65, 123, .1);
+      li{
+        list-style: none;
+        background: rgba(0, 65, 123, .2);
+        margin: 2px 0;
+        padding: 5px;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+    }
+  }
+}
 .wrapItem {
+  background: rgba(0, 65, 123, 0.06);
+  border-radius: 3px;
+  padding: 10px;
+  margin-bottom: 5px;
+  .pay{
+    span{
+      float: right;
+    }
+  }
   .item {
     padding: 5px;
     margin: 5px;
@@ -11,7 +57,6 @@
       width: 150px;
       height: auto;
     }
-
     ul {
       margin: 0;
       padding: 0;
@@ -63,3 +108,5 @@
     transition: all .4s;
   }
 }
+
+

@@ -53,6 +53,12 @@ export class FilterComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.initStyleCategory();
     this.initCountCategory();
+    this.stateFilter();
+  }
+  stateFilter(){
+    if (window.innerWidth < 768 ) {
+      this.filterState = !this.filterState;
+    }
   }
 
   initStyleCategory() {

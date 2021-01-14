@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {CallbackModalComponent} from '../../shared/components/callback-modal/callback-modal.component';
 import {MatDialog} from '@angular/material/dialog';
 import {ModalBacketComponent} from '../../shared/components/modal-backet/modal-backet.component';
 
@@ -20,7 +19,8 @@ export class HeaderComponent implements OnInit {
   openDialog(): void {
      this.dialog.open(ModalBacketComponent, {
        panelClass: 'basket-modal',
-       width: '80%'
+       width: '90%',
+       height: 'auto'
     });
   }
 }

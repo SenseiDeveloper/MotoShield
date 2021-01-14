@@ -29,7 +29,7 @@ export class CallbackModalComponent implements OnInit, OnDestroy {
   initForm() {
     this.callbackForm = new FormGroup({
       phone: new FormControl('', Validators.required),
-      commend: new FormControl('', Validators.required)
+      commend: new FormControl('')
     });
   }
 
