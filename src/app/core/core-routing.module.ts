@@ -11,7 +11,9 @@ const routes: Routes = [
   { path: 'contacts', loadChildren: () => import('../feature/contact/contact.module').then( m => m.ContactModule)},
   { path: 'billpay', loadChildren: () => import('../feature/billpay/billpay.module').then( m => m.BillpayModule)},
   { path: 'product/:id', loadChildren: () => import('../feature/product/product.module').then( m => m.ProductModule)},
-  { path: 'pay', loadChildren: () => import('../feature/pay/pay.module').then( m => m.PayModule)}
+  { path: 'pay', loadChildren: () => import('../feature/pay/pay.module').then( m => m.PayModule)},
+  { path: '404', loadChildren: () => import('../feature/not-found/not-found.module').then( m => m.NotFoundModule)},
+  {path: '**', redirectTo: '/404'}
 ];
 
 @NgModule({
