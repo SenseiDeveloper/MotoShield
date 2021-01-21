@@ -4,6 +4,7 @@ import {ProductsService} from '../../../shared/service/products.service';
 import { takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import {ThemePalette} from '@angular/material/core';
+import {FilterDataService} from '../../../shared/service/filter-data.service';
 
 @Component({
   selector: 'app-filter',
@@ -22,6 +23,7 @@ export class FilterComponent implements OnInit, OnDestroy {
   categoryCounter: CategoryModel[];
   color: ThemePalette = 'primary';
   filterState: boolean = true;
+  @Output() pageCounter = new EventEmitter<number>();
 
   category: CategoryModel[] = [
     {
@@ -47,7 +49,8 @@ export class FilterComponent implements OnInit, OnDestroy {
   ];
 
   constructor(
-    private productsService: ProductsService
+    private productsService: ProductsService,
+    private filterDataService: FilterDataService
   ) { }
 
   ngOnInit(): void {
@@ -61,6 +64,14 @@ export class FilterComponent implements OnInit, OnDestroy {
     }
   }
 
+  scroll() {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
+  }
+
   initStyleCategory() {
     this.activeItem = localStorage.getItem('filterKey');
   }
@@ -69,22 +80,46 @@ export class FilterComponent implements OnInit, OnDestroy {
     this.productsService.getCountCategoryProducts()
       .pipe(takeUntil(this.unsubscribe))
       .subscribe(
-        (products: []) => this.categoryCounter = products,
+        (products: []) => {
+          this.categoryCounter = products;
+          this.pageCount();
+        },
         error => console.log(error)
       );
   }
 
-  filterCategory(event: CategoryModel) {
+  filterCategory(event: CategoryModel){
+    this.filterDataService.setFilterOption(event.filterKey,'all', 1 );
+    this.categoryEvent.emit();
+    this.pageCount();
+
     this.activeItem = event.filterKey;
+    this.activeSizeItem = 'all';
     localStorage.setItem('filterKey', event.filterKey);
-    this.categoryEvent.emit(event.filterKey);
-    this.activeSizeItem = '';
+    localStorage.setItem('filterSize', 'all');
   }
 
-  filterSize(event: CategoryModel) {
+  filterSize(event: CategoryModel){
+    const category = localStorage.getItem('filterKey');
+    this.filterDataService.setFilterOption(category, event.name, 1 );
+    this.sizeEvent.emit();
+    this.pageCountSize( Number(event.filterSize));
+
     this.activeSizeItem = event.name;
     localStorage.setItem('filterSize', event.name);
-    this.sizeEvent.emit(event.name);
+  }
+
+  pageCount() {
+    if (this.categoryCounter) {
+      const filter = localStorage.getItem('filterKey');
+      const pageCounter = Math.round((this.categoryCounter[filter]) / 8 );
+      pageCounter !== 0 ? this.pageCounter.emit(pageCounter) : this.pageCounter.emit(1);
+    }
+  }
+
+  pageCountSize(event: number) {
+    const pageCounter = Math.round(event / 8 );
+    pageCounter !== 0 ? this.pageCounter.emit(pageCounter) : this.pageCounter.emit(1);
   }
 
   filterStates() {

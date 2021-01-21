@@ -4,6 +4,7 @@ import {ProductsService} from '../../shared/service/products.service';
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
 import {CategoryModel} from '../../shared/model/category.model';
+import {FilterDataService} from '../../shared/service/filter-data.service';
 
 @Component({
   selector: 'app-shop',
@@ -14,35 +15,36 @@ export class ShopComponent implements OnInit, OnDestroy {
 
   unsubscribe: Subject<void> = new Subject<void>();
   listProducts: HomeProductModel[] = [];
-  category: string;
-  size: string;
+  categoryOption: {};
   activeCategorySize: CategoryModel[];
+  initPageCounter: number[];
+  pageNumber: number;
 
   constructor(
-    private productsService: ProductsService
+    private productsService: ProductsService,
+    private filterDataService: FilterDataService
   ) { }
 
   ngOnInit(): void {
+    this.initOption();
     this.initFilter();
     this.initProducts();
+    this.initStylePage();
   }
 
+  initStylePage(){
+    this.pageNumber = Number(localStorage.getItem('page'));
+  }
   initFilter() {
-    localStorage.getItem('filterKey') === null ? this.category = 'all' : this.category = localStorage.getItem('filterKey');
-    localStorage.getItem('filterSize') === null ? this.size = 'all' : this.size = localStorage.getItem('filterSize');
-  }
-
-  createObjectFilter() {
-    return Object.assign({
-      category: this.category,
-      size: this.size
-    });
+    this.filterDataService.getFilterOption()
+      .pipe(takeUntil(this.unsubscribe))
+      .subscribe( (data: {}) => this.categoryOption = data);
   }
 
   createObjectSize(size: CategoryModel[]){
     const sizeValue = Object.entries(size);
     return sizeValue.map(([key, value]) => {
-     return  Object.assign({
+      return  Object.assign({
         name: key,
         filterSize: value
       });
@@ -54,8 +56,17 @@ export class ShopComponent implements OnInit, OnDestroy {
     this.activeCategorySize = this.createObjectSize(products['size']);
   }
 
-  initProducts() {
-    this.productsService.getFilterProducts(this.createObjectFilter())
+  initOption() {
+    if (!this.categoryOption){
+      this.categoryOption = Object.assign({
+        category: 'all',
+        sizeCategory: 'all',
+        page: 1
+      });
+    }
+  }
+  initProducts(){
+    this.productsService.getFilterProducts(this.categoryOption)
       .pipe(takeUntil(this.unsubscribe))
       .subscribe(
         (products: HomeProductModel[]) => this.successInitProducts(products),
@@ -63,16 +74,34 @@ export class ShopComponent implements OnInit, OnDestroy {
       );
   }
 
-  newCategory(event: string) {
-    this.category = event;
-    localStorage.setItem('filterSize', 'all');
-    this.size = 'all';
+  newCategory() {
+    this.initFilter();
     this.initProducts();
+    this.pageNumber = 1;
   }
 
-  sizeProducts(event: string) {
-    this.size = event;
+  sizeProducts() {
+    this.initFilter();
     this.initProducts();
+  }
+  pageCounter(value: number){
+    const array = Array.from(Array(value), (_, i) => i + 1);
+    this.initPageCounter = array;
+  }
+
+  nextPage(event){
+    this.pageNumber = event;
+    localStorage.setItem('page', event);
+
+    const category = localStorage.getItem('filterKey');
+    const size = localStorage.getItem('filterSize');
+    this.filterDataService.setFilterOption(category, size, event);
+    this.initProducts();
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
   }
 
   ngOnDestroy(): void {

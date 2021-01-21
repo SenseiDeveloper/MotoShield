@@ -63,8 +63,21 @@ exports.productsCounter = (cb) => {
 //Model filter Products
 exports.productsFilter = (prod,cb) => {
   const category = prod.category;
-  const size = prod.size;
+  const size = prod.sizeCategory;
+  const page = prod.page;
 
+ /* db.get().collection("products").find(subFunction.subFilter(category,size),{
+    projection: {
+      characteristics: 0,
+      disadvantage: 0,
+      img2: 0,
+      img3: 0,
+      img4: 0,
+      img5: 0,
+      img6: 0,
+      img7: 0,
+      img8: 0
+    }}).toArray((error,docs) => subFunction.subCounter(error,docs,page,cb));*/
   db.get().collection("products").find({},{
     projection: {
       characteristics: 0,
@@ -80,18 +93,18 @@ exports.productsFilter = (prod,cb) => {
   }).toArray( (error,docs) => {
     if(category === 'all'){
       if(size === 'all'){
-        subFunction.subObjProducts(error,docs,cb);
+        subFunction.subObjProducts(error,docs,page,cb);
       } else {
         let filterSizeProducts = docs.filter(el => el.size === size);
-        subFunction.subObjProductsWithSize(error,filterSizeProducts,docs,cb);
+        subFunction.subObjProductsWithSize(error,filterSizeProducts,docs,page,cb);
       }
     } else {
       let filter = docs.filter(el => el.categories === category);
       if(size === 'all'){
-        subFunction.subObjProducts(error,filter,cb);
+        subFunction.subObjProducts(error,filter,page,cb);
       } else {
         let filterSizeProducts = filter.filter(el => el.size === size);
-        subFunction.subObjProductsWithSize(error,filterSizeProducts,filter,cb);
+        subFunction.subObjProductsWithSize(error,filterSizeProducts,filter,page,cb);
       }
     }
   });

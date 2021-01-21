@@ -16,7 +16,12 @@
            *ngFor="let cat of category"
            (click)="filterCategory(cat)"
       >
-        <input type="radio" name="group1" id="{{cat.name}}" [checked]="cat.filterKey === activeItem">
+        <input type="radio"
+               name="group1"
+               id="{{cat.name}}"
+               [checked]="cat.filterKey === activeItem"
+               (click)="scroll()"
+        >
         <label for="{{cat.name}}">
             <span class="radio">
               {{cat.name}}
@@ -33,7 +38,12 @@
            *ngFor="let size of sizeCounter"
            (click)="filterSize(size)"
       >
-        <input type="radio" name="group2" id="{{size.name}}" [checked]="size.name === activeSizeItem">
+        <input type="radio"
+               name="group2"
+               id="{{size.name}}"
+               [checked]="size.name === activeSizeItem"
+               (click)="scroll()"
+        >
         <label for="{{size.name}}">
             <span class="radio">
               {{size.name}}

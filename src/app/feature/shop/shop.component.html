@@ -3,9 +3,10 @@
     <div class="row">
       <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12">
         <app-filter
+          (categoryEvent)="newCategory()"
           [sizeCounter] = "activeCategorySize"
-          (categoryEvent)="newCategory($event)"
-          (sizeEvent)="sizeProducts($event)"
+          (sizeEvent)="sizeProducts()"
+          (pageCounter)="pageCounter($event)"
         ></app-filter>
       </div>
       <div class="col-xl-9 col-lg-9 col-md-8 col-sm-12 col-xs-12">
@@ -14,6 +15,16 @@
             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-6 col-xs-12">
               <app-shop-item [listProduct]="item"></app-shop-item>
             </div>
+          </ng-container>
+        </div>
+        <div class="row">
+          <ng-container *ngIf="initPageCounter.length > 1">
+            <ul class="pagination">
+              <li *ngFor="let page of initPageCounter"
+                  [ngClass]="{'active': page === pageNumber}"
+                  (click)="nextPage(page)"
+              >{{page}}</li>
+            </ul>
           </ng-container>
         </div>
       </div>

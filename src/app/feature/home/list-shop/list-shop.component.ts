@@ -4,6 +4,7 @@ import {ProductsService} from '../../../shared/service/products.service';
 import {takeUntil} from 'rxjs/operators';
 import {HomeProductModel} from '../../../shared/model/home-product.model';
 import {Router} from '@angular/router';
+import {FilterDataService} from '../../../shared/service/filter-data.service';
 
 @Component({
   selector: 'app-list-shop',
@@ -17,7 +18,8 @@ export class ListShopComponent implements OnInit, OnDestroy {
 
   constructor(
     private productsService: ProductsService,
-    private router: Router
+    private router: Router,
+    private filterDataService: FilterDataService
   ) { }
 
   ngOnInit(): void {
@@ -36,6 +38,8 @@ export class ListShopComponent implements OnInit, OnDestroy {
   selectCategory(event: string){
     this.router.navigate(['shop']);
     localStorage.setItem('filterKey', event);
+    localStorage.setItem('page', '1');
+    this.filterDataService.setFilterOption(event,'all',1);
   }
 
   ngOnDestroy(): void {
