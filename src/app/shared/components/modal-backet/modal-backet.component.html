@@ -1,6 +1,6 @@
 <p mat-dialog-title>Корзина заказов</p>
 <div mat-dialog-content>
-  <p *ngIf="products?.length === 0">В корзине нет товаров</p>
+  <p *ngIf="products?.length === 0 || products === undefined">В корзине нет товаров</p>
   <div class="wrapBasket" >
     <ng-container *ngFor="let product of products">
       <div class="item" (click)="redirectProduct(product._id)">

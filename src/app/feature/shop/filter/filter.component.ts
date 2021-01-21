@@ -5,6 +5,7 @@ import { takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import {ThemePalette} from '@angular/material/core';
 import {FilterDataService} from '../../../shared/service/filter-data.service';
+import {HomeProductModel} from '../../../shared/model/home-product.model';
 
 @Component({
   selector: 'app-filter',
@@ -24,6 +25,7 @@ export class FilterComponent implements OnInit, OnDestroy {
   color: ThemePalette = 'primary';
   filterState: boolean = true;
   @Output() pageCounter = new EventEmitter<number>();
+  @Output() searchText = new EventEmitter<HomeProductModel[]>();
 
   category: CategoryModel[] = [
     {
@@ -58,10 +60,20 @@ export class FilterComponent implements OnInit, OnDestroy {
     this.initCountCategory();
     this.stateFilter();
   }
+
   stateFilter(){
     if (window.innerWidth < 768 ) {
       this.filterState = !this.filterState;
     }
+  }
+
+  searchInput(event: string){
+    this.productsService.getSearchInput({event})
+      .pipe(takeUntil(this.unsubscribe))
+      .subscribe(
+        (product: HomeProductModel[]) => this.searchText.emit(product),
+        error => console.log(error)
+      );
   }
 
   scroll() {

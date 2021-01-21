@@ -33,4 +33,8 @@ export class ProductsService extends ApiBaseService{
   getProductsForBasket( value: []): Observable<HomeProductModel[]> {
     return this.post('products-basket', value);
   }
+
+  getSearchInput(value: {}): Observable<HomeProductModel[]> {
+    return this.post('search', value);
+  }
 }

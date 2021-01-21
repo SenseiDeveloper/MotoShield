@@ -32,6 +32,9 @@ app.post('/api/callback-mail', cors(), MailController.sendCallback);
 //API get invoice
 app.post('/api/invoice', cors(), MailController.invoice);
 
+//API for search input
+app.post('/api/search', cors(), ProductsController.searchField);
+
 db.connect('mongodb://localhost:27017/Motoshield', (error) => {
   if(error){
     return console.log(error)

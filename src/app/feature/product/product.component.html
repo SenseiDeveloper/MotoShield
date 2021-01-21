@@ -1,54 +1,57 @@
-<section *ngIf="product ? true:''" class="wrapSection">
-  <div class="container">
-    <div class="row">
-      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <div class="navigation">
-          <ul>
-            <li [routerLink]="['/shop']" >Мотоэкипировка ></li>
-            <li>{{product['name']}}</li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12">
-        <ngx-gallery  [images]="galleryImages" [options]="galleryOptions" class="ngx-gallery"></ngx-gallery>
-      </div>
-      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
-        <div class="textProduct">
-          <h1 class="sectionH1">{{product['name']}}</h1>
-          <div class="line"></div>
-          <ul>
-            <li>
-              <span>Размер</span>
-              <p class="sectionText">{{product['size']}}</p>
-            </li>
-            <li>
-              <span>Состояния</span>
-              <p class="sectionText">{{product['state']}}</p>
-            </li>
-            <li>
-              <span>Цена</span>
-              <p class="sectionText">{{product['price']}} <img src="../../../assets/image/filterIcon/uah.svg" alt="uah"></p>
-            </li>
-            <li>
-              <span>Недостатки</span>
-              <p class="sectionText">{{product['disadvantage']}}</p>
-            </li>
-          </ul>
-          <div class="btnBlock">
-            <app-button-callback [btnText]="'Перезвоните мне'"></app-button-callback>
-            <app-button-backet [buttonName]="'Добавить в корзину'" [productID]="product['_id']" [ds]="product['sale']"></app-button-backet>
-            <p class="sectionText" *ngIf="product['sale'] === 1">Товара нету в наличии</p>
+<app-loader *ngIf="loader"></app-loader>
+<div class="load">
+  <section *ngIf="product ? true:''" class="wrapSection">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="navigation">
+            <ul>
+              <li [routerLink]="['/shop']" >Мотоэкипировка ></li>
+              <li>{{product['name']}}</li>
+            </ul>
           </div>
         </div>
-      </div>
-      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <div class="downText">
-          <span>Характеристики</span>
+        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12">
+          <ngx-gallery  [images]="galleryImages" [options]="galleryOptions" class="ngx-gallery"></ngx-gallery>
         </div>
-        <div class="line"></div>
-        <p class="sectionText">{{product['characteristics']}}</p>
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+          <div class="textProduct">
+            <h1 class="sectionH1">{{product['name']}}</h1>
+            <div class="line"></div>
+            <ul>
+              <li>
+                <span>Размер</span>
+                <p class="sectionText">{{product['size']}}</p>
+              </li>
+              <li>
+                <span>Состояния</span>
+                <p class="sectionText">{{product['state']}}</p>
+              </li>
+              <li>
+                <span>Цена</span>
+                <p class="sectionText">{{product['price']}} <img src="../../../assets/image/filterIcon/uah.svg" alt="uah"></p>
+              </li>
+              <li>
+                <span>Недостатки</span>
+                <p class="sectionText">{{product['disadvantage']}}</p>
+              </li>
+            </ul>
+            <div class="btnBlock">
+              <app-button-callback [btnText]="'Перезвоните мне'"></app-button-callback>
+              <app-button-backet [buttonName]="'Добавить в корзину'" [productID]="product['_id']" [ds]="product['sale']"></app-button-backet>
+              <p class="sectionText" *ngIf="product['sale'] === 1">Товара нету в наличии</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="downText">
+            <span>Характеристики</span>
+          </div>
+          <div class="line"></div>
+          <p class="sectionText">{{product['characteristics']}}</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>
 

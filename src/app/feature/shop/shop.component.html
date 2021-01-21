@@ -7,25 +7,29 @@
           [sizeCounter] = "activeCategorySize"
           (sizeEvent)="sizeProducts()"
           (pageCounter)="pageCounter($event)"
+          (searchText) = "searchText($event)"
         ></app-filter>
       </div>
       <div class="col-xl-9 col-lg-9 col-md-8 col-sm-12 col-xs-12">
-        <div class="row">
-          <ng-container *ngFor="let item of listProducts">
-            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-6 col-xs-12">
-              <app-shop-item [listProduct]="item"></app-shop-item>
-            </div>
-          </ng-container>
-        </div>
-        <div class="row">
-          <ng-container *ngIf="initPageCounter.length > 1">
-            <ul class="pagination">
-              <li *ngFor="let page of initPageCounter"
-                  [ngClass]="{'active': page === pageNumber}"
-                  (click)="nextPage(page)"
-              >{{page}}</li>
-            </ul>
-          </ng-container>
+        <app-loader *ngIf="loader"></app-loader>
+        <div class="load" *ngIf="loader === false">
+          <div class="row">
+            <ng-container *ngFor="let item of listProducts">
+              <div class="col-xl-6 col-lg-6 col-md-12 col-sm-6 col-xs-12">
+                <app-shop-item [listProduct]="item"></app-shop-item>
+              </div>
+            </ng-container>
+          </div>
+          <div class="row" *ngIf="searchState === false">
+            <ng-container *ngIf="initPageCounter?.length > 1">
+              <ul class="pagination">
+                <li *ngFor="let page of initPageCounter"
+                    [ngClass]="{'active': page === pageNumber}"
+                    (click)="nextPage(page)"
+                >{{page}}</li>
+              </ul>
+            </ng-container>
+          </div>
         </div>
       </div>
     </div>

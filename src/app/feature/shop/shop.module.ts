@@ -16,7 +16,8 @@ import {MatInputModule} from '@angular/material/input';
     ShopRoutingModule,
     SharedModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    SharedModule
   ]
 })
 export class ShopModule { }

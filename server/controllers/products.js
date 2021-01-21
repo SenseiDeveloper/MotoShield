@@ -39,3 +39,11 @@ exports.productsFilter = (req,res) => {
     res.send(docs);
   });
 };
+
+//Controller search Input
+exports.searchField = (req,res) => {
+  Products.searchField(req.body, (error,docs) => {
+    if(error) return res.sendStatus(500);
+    res.send(docs);
+  });
+};

@@ -65,19 +65,6 @@ exports.productsFilter = (prod,cb) => {
   const category = prod.category;
   const size = prod.sizeCategory;
   const page = prod.page;
-
- /* db.get().collection("products").find(subFunction.subFilter(category,size),{
-    projection: {
-      characteristics: 0,
-      disadvantage: 0,
-      img2: 0,
-      img3: 0,
-      img4: 0,
-      img5: 0,
-      img6: 0,
-      img7: 0,
-      img8: 0
-    }}).toArray((error,docs) => subFunction.subCounter(error,docs,page,cb));*/
   db.get().collection("products").find({},{
     projection: {
       characteristics: 0,
@@ -108,4 +95,21 @@ exports.productsFilter = (prod,cb) => {
       }
     }
   });
+};
+
+//Model Search field
+exports.searchField = (value,cb) => {
+  db.get().collection("products").find({$text : {$search: value.event}},{
+    projection: {
+      characteristics: 0,
+      disadvantage: 0,
+      img2: 0,
+      img3: 0,
+      img4: 0,
+      img5: 0,
+      img6: 0,
+      img7: 0,
+      img8: 0
+    }
+  }).toArray( (error,docs) => { cb(error,docs) });
 };

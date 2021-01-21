@@ -19,6 +19,7 @@ export class ProductComponent implements OnInit, OnDestroy {
   product: ProductModel[];
   galleryImages: NgxGalleryImage[];
   galleryOptions: NgxGalleryOptions[];
+  loader: boolean = true;
 
   constructor(
     private activeRouter: ActivatedRoute,
@@ -71,6 +72,7 @@ export class ProductComponent implements OnInit, OnDestroy {
       }));
     }
     this.galleryImages = gallery;
+    this.loader = false;
   }
 
   successInitProduct(product: ProductModel[]){

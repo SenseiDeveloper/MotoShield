@@ -19,6 +19,8 @@ export class ShopComponent implements OnInit, OnDestroy {
   activeCategorySize: CategoryModel[];
   initPageCounter: number[];
   pageNumber: number;
+  searchState: boolean;
+  loader: boolean = true;
 
   constructor(
     private productsService: ProductsService,
@@ -30,6 +32,14 @@ export class ShopComponent implements OnInit, OnDestroy {
     this.initFilter();
     this.initProducts();
     this.initStylePage();
+    this.initRouter();
+  }
+
+  initRouter(){
+    window.scroll({
+      top: 0,
+      left: 0
+    });
   }
 
   initStylePage(){
@@ -54,6 +64,8 @@ export class ShopComponent implements OnInit, OnDestroy {
   successInitProducts(products: HomeProductModel[]) {
     this.listProducts = products['products'];
     this.activeCategorySize = this.createObjectSize(products['size']);
+    this.searchState = false;
+    this.loader = false;
   }
 
   initOption() {
@@ -72,6 +84,10 @@ export class ShopComponent implements OnInit, OnDestroy {
         (products: HomeProductModel[]) => this.successInitProducts(products),
         error => console.log(error)
       );
+  }
+
+  searchText(event: HomeProductModel[]) {
+    event.length === 0 ? this.initProducts() : this.listProducts = event; this.searchState = true;
   }
 
   newCategory() {
