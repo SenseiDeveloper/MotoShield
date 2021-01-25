@@ -1,5 +1,5 @@
 <app-loader *ngIf="loader"></app-loader>
-<div class="load">
+<div class="load" *ngIf="loader === false">
   <section *ngIf="product ? true:''" class="wrapSection">
     <div class="container">
       <div class="row">
